@@ -1,24 +1,33 @@
 -- Keymaps go here
 
---Trouble
-vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", {silent = true, noremap = true})
-vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", {silent = true, noremap = true})
-vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", {silent = true, noremap = true})
-vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", {silent = true, noremap = true})
-vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", {silent = true, noremap = true})
-
---Telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Finde file" })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Live grep" })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Buffers" })
-vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = "Recent files" })
---vim.keymap.set('n', '<leader>fb', builtin.todo_comments, { desc = "Todo comments" })
-vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = "List diagnostics" })
-
 --Spectre
-vim.keymap.set('n', '<leader>so', '<cmd>lua require("spectre").open()<CR>', {desc = "Open Spectre"})
-vim.keymap.set('n', '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {desc = "Search current word"})
-vim.keymap.set('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {desc = "Search on current file"})
+vim.keymap.set("n", "<leader>sr", '<cmd>lua require("spectre").open()<CR>', { desc = "Open Spectre" })
+vim.keymap.set(
+	"n",
+	"<leader>sw",
+	'<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
+	{ desc = "Search current word" }
+)
 
+--Better saving and quiting
+vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Save file" })
+vim.keymap.set("n", "<leader>W", "<cmd>w<CR>", { desc = "Save files" })
+vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Quit" })
+vim.keymap.set("n", "<leader>q", "<cmd>q!<CR>", { desc = "Force Quit" })
 
+-- Package manager
+vim.keymap.set("n", "<leader>cm", "<Cmd>Mason<CR>", { desc = "Mason" })
+vim.keymap.set("n", "<A-l>", "<Cmd>Lazy<CR>", { desc = "Lazy" })
+
+--Editor
+vim.keymap.set("n", "<A-UP>", "<Cmd>move .-2<CR>==", { desc = "Move up" })
+vim.keymap.set("n", "<A-DOWN>", "<Cmd>move .+1<CR>==", { desc = "Move down" })
+vim.keymap.set("v", "<A-UP>", ":move '<-2<cr>gv=gv", { desc = "Move up" })
+vim.keymap.set("v", "<A-DOWN>", ":move '>+1<cr>gv=gv", { desc = "Move down" })
+
+vim.keymap.set("v", ">", ">gv", { desc = "Visual shifting" })
+vim.keymap.set("v", "<", "<gv", { desc = "Visual shifting" })
+
+--Buffer
+vim.keymap.set("n", "<leader>bd", "<Cmd>bdelete!<CR>", { desc = "Delete current" })
+vim.keymap.set("n", "<leader>bD", "<Cmd>%bdelete<Bar>edit#<Bar>bdelete#<CR>", { desc = "Delete others" })
