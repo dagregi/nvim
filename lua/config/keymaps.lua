@@ -13,7 +13,7 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Save file" })
 vim.keymap.set("n", "<leader>W", "<cmd>w<CR>", { desc = "Save files" })
 vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Quit" })
-vim.keymap.set("n", "<leader>q", "<cmd>q!<CR>", { desc = "Force Quit" })
+vim.keymap.set("n", "<leader>Q", "<cmd>q!<CR>", { desc = "Force quit" })
 
 -- Package manager
 vim.keymap.set("n", "<leader>cm", "<Cmd>Mason<CR>", { desc = "Mason" })

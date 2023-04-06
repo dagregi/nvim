@@ -1,54 +1,35 @@
 return {
-	{
-		"NvChad/nvterm",
-		lazy = false,
-		config = function()
-			require("nvterm").setup({
-				terminals = {
-					type_opts = {
-						horizontal = { location = "rightbelow", split_ratio = 0.2 },
-						vertical = { location = "rightbelow", split_ratio = 0.4 },
-					},
-				},
-				behavior = {
-					autoclose_on_quit = {
-						enabled = true,
-						confirm = false,
-					},
-					close_on_exit = true,
-					auto_insert = false,
-				},
-			})
-		end,
-		keys = {
-			{
-				"<leader>th",
-				function()
-					require("nvterm.terminal").new("horizontal")
-				end,
-				desc = "Horzontal terminal",
-			},
-			{
-				"<leader>tv",
-				function()
-					require("nvterm.terminal").toggle("vertical")
-				end,
-				desc = "Vertical terminal",
-			},
-			{
-				"<leader>tf",
-				function()
-					require("nvterm.terminal").toggle("float")
-				end,
-				desc = "Floating terminal",
-			},
-			{
-				"<leader>td",
-				function()
-					require("nvterm.terminal").send("npmR dev", "float")
-				end,
-				desc = "Run dev server",
-			},
-		},
-	},
+  {
+    'akinsho/toggleterm.nvim', version = "*",
+    opts = {
+      persist_size = true,
+    },
+    config = function (_, opts)
+      local Terminal  = require('toggleterm.terminal').Terminal
+      local lazygit = Terminal:new({
+        cmd = "lazygit",
+        direction = "float",
+        float_opts = { border = "curved" },
+      })
+      function _lazygit_toggle()
+        lazygit:toggle()
+      end
+      local rundev = Terminal:new({
+        cmd = "npm run dev",
+        direction = "horizontal",
+      })
+      function _rundev_toggle()
+        rundev:toggle()
+      end
+      require("toggleterm").setup(opts)
+    end,
+    keys = {
+      { "<leader>tA", "<Cmd>ToggleTermToggleAll<CR>", desc = "Toggle all terminals" },
+      { "<leader>th", "<Cmd>ToggleTerm direction=horizontal<CR>", desc = "Horizontal terminal" },
+      { "<leader>tv", "<Cmd>ToggleTerm direction=vertical<CR>", desc = "Vertical terminal" },
+      { "<leader>tT", "<Cmd>ToggleTerm direction=tab<CR>", desc = "Tab terminal" },
+      { "<leader>gg", "<Cmd>lua _lazygit_toggle()<CR>", desc = "Lazygit" },
+      { "<leader>td", "<Cmd>lua _rundev_toggle()<CR>", desc = "Run dev server" },
+    }
+  },
 }

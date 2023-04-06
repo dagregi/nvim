@@ -13,6 +13,7 @@ return {
     version = false, -- wait till new 0.7.0 release to put it back on semver
     event = { "BufReadPre", "BufNewFile" },
     opts = {
+      draw = { delay = 10 },
       symbol = "│",
       options = { try_as_border = true },
     },
@@ -31,7 +32,7 @@ return {
 	{
 		"RRethy/vim-illuminate",
 		event = { "BufReadPost", "BufNewFile", "VeryLazy" },
-		opts = { delay = 200 },
+		opts = { delay = 100 },
 		config = function(_, opts)
 			require("illuminate").configure(opts)
 		end,
@@ -64,7 +65,7 @@ return {
 			vim.o.timeoutlen = 300
 			require("which-key").setup({
 				window = {
-					winblend = 30,
+					winblend = 15,
 					border = "rounded",
 				},
 				layout = {
@@ -74,14 +75,14 @@ return {
 			})
 			require("which-key").register({
 				["<leader>"] = {
-					s = { name = "+ search" },
-					t = { name = "+ terminal" },
-					g = { name = "+ git" },
+					s = { name = "  ".." search" },
+					t = { name = "  ".." terminal" },
+					g = { name = "  ".." git" },
 					gh = { name = "+ hunks" },
-					b = { name = "+ buffers" },
-					c = { name = "+ code" },
-					f = { name = "+ files/find" },
-					x = { name = "+ trouble" },
+					b = { name = "  ".." buffers" },
+					c = { name = "  ".." code" },
+					f = { name = "  ".." files/find" },
+					x = { name = "  ".." trouble" },
 				},
 			})
 		end,

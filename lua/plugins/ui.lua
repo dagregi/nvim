@@ -162,9 +162,7 @@ return {
 			local components = {
 				mode = {
 					"mode",
-					fmt = function(str)
-						return string.sub(str, 1, 1)
-					end,
+          icon = " ",
 					separator = {
 						left = "",
 						right = "",
@@ -186,13 +184,6 @@ return {
 								table.insert(buf_client_names, client.name)
 							end
 						end
-
-						local U = require("config.utils")
-						local formatters = U.list_registered_formatters(buf_ft)
-						vim.list_extend(buf_client_names, formatters, 1, #formatters)
-
-						local linters = U.list_registered_linters(buf_ft)
-						vim.list_extend(buf_client_names, linters, 1, #linters)
 
 						local clients = fn.uniq(buf_client_names)
 						return "LSP(s):[" .. table.concat(clients, " · ") .. "]"
@@ -236,6 +227,7 @@ return {
 						info = " ",
 						hint = " ",
 					},
+					separator = { left = "" },
 				},
 				diff = {
 					"diff",
@@ -255,7 +247,6 @@ return {
 						modified = " ",
 						removed = " ",
 					},
-					separator = { left = "" },
 					cond = conditions.hide_in_width,
 				},
 				location = {
@@ -292,6 +283,7 @@ return {
 							"diff",
 							"alpha",
 							"mason",
+              "specter",
 							"undotree",
 							"nvterm",
 							"neo-tree",
@@ -302,12 +294,12 @@ return {
 				sections = {
 					lualine_a = { components.mode },
 					lualine_b = { components.branch },
-					lualine_c = { components.diagnostics },
+          lualine_c = { components.diff },
 					lualine_x = {
 						components.lsp,
 						components.filesize,
 					},
-					lualine_y = { components.diff },
+					lualine_y = { components.diagnostics },
 					lualine_z = { components.clock },
 				},
 				inactive_sections = {
@@ -330,7 +322,9 @@ return {
 			"SmiteshP/nvim-navic",
 		},
 		config = function()
-			require("barbecue").setup()
+			require("barbecue").setup({
+        theme = "catppuccin",
+      })
 		end,
 	},
 	{
@@ -348,7 +342,7 @@ return {
 				return btn
 			end
 
-			dashboard.section.header.val = "heh"
+			dashboard.section.header.val = "Heh"
 			dashboard.section.buttons.val = {
 				button("Character", "n", "  New file", "<Cmd>ene<Bar>star<CR>"),
 				button("Label", "g", "  Find text", "<Cmd>Telescope live_grep_args<CR>"),
@@ -394,7 +388,7 @@ return {
 					local v = vim.version() or {}
 					local version = string.format(
 						"%s Neovim v%d.%d.%d%s",
-						"",
+						" ",
 						v.major,
 						v.minor,
 						v.patch,
@@ -410,6 +404,7 @@ return {
 	},
 	{
 		"akinsho/bufferline.nvim",
+    after = "catppuccin",
 		event = "BufReadPre",
 		keys = {
 			{ "[b", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev buffer" },
@@ -475,7 +470,7 @@ return {
 							hint_diagnostic = { fg = colors.surface1 },
 						},
 					},
-				}),
+        }),
 			}
 		end,
 	},

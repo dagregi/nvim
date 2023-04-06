@@ -66,28 +66,7 @@ local M = {
 			-- you can do any additional lsp server setup here
 			-- return true if you don't want this server to be setup with lspconfig
 			---@type table<string, fun(server:string, opts: table):boolean?>
-			setup = {
-				tsserver = function(_, opts)
-					require("config.utils").on_attach(function(client, buffer)
-						if client.name == "tsserver" then
-							vim.keymap.set(
-								"n",
-								"<leader>co",
-								"<cmd>TypescriptOrganizeImports<CR>",
-								{ buffer = buffer, desc = "Organize Imports" }
-							)
-							vim.keymap.set(
-								"n",
-								"<leader>cR",
-								"<cmd>TypescriptRenameFile<CR>",
-								{ desc = "Rename File", buffer = buffer }
-							)
-						end
-					end)
-					require("typescript").setup({ server = opts })
-					return true
-				end,
-			},
+			setup = {},
 		},
 		config = function(_, opts)
 			require("plugins.lsp.diagnostics").setup()
