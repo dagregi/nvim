@@ -3,32 +3,32 @@ return {
 		"nvim-pack/nvim-spectre",
 		lazy = true,
 	},
-  {
-    "folke/persistence.nvim",
-    event={"BufReadPre", "VeryLazy"},
-    opts={options={"buffers","curdir","tabpages","winsize","help","globals"}},
-  },
-  {
-    "echasnovski/mini.indentscope",
-    version = false, -- wait till new 0.7.0 release to put it back on semver
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {
-      draw = { delay = 10 },
-      symbol = "│",
-      options = { try_as_border = true },
-    },
-    init = function()
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason" },
-        callback = function()
-          vim.b.miniindentscope_disable = true
-        end,
-      })
-    end,
-    config = function(_, opts)
-      require("mini.indentscope").setup(opts)
-    end,
-  },
+	{
+		"folke/persistence.nvim",
+		event = { "BufReadPre", "VeryLazy" },
+		opts = { options = { "buffers", "curdir", "tabpages", "winsize", "help", "globals" } },
+	},
+	{
+		"echasnovski/mini.indentscope",
+		version = false, -- wait till new 0.7.0 release to put it back on semver
+		event = { "BufReadPre", "BufNewFile" },
+		opts = {
+			draw = { delay = 10 },
+			symbol = "│",
+			options = { try_as_border = true },
+		},
+		init = function()
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason" },
+				callback = function()
+					vim.b.miniindentscope_disable = true
+				end,
+			})
+		end,
+		config = function(_, opts)
+			require("mini.indentscope").setup(opts)
+		end,
+	},
 	{
 		"RRethy/vim-illuminate",
 		event = { "BufReadPost", "BufNewFile", "VeryLazy" },
@@ -39,7 +39,7 @@ return {
 	},
 	{
 		"lewis6991/impatient.nvim",
-    lazy = false,
+		lazy = false,
 		config = function()
 			require("impatient")
 		end,
@@ -75,14 +75,15 @@ return {
 			})
 			require("which-key").register({
 				["<leader>"] = {
-					s = { name = "  ".." search" },
-					t = { name = "  ".." terminal" },
-					g = { name = "  ".." git" },
+					s = { name = "  " .. " search" },
+					t = { name = "  " .. " terminal" },
+					g = { name = "  " .. " git" },
 					gh = { name = "+ hunks" },
-					b = { name = "  ".." buffers" },
-					c = { name = "  ".." code" },
-					f = { name = "  ".." files/find" },
-					x = { name = "  ".." trouble" },
+					b = { name = "  " .. " buffers" },
+					l = { name = "  " .. " lsp" },
+					c = { name = "  " .. " code" },
+					f = { name = "  " .. " files/find" },
+					x = { name = "  " .. " trouble" },
 				},
 			})
 		end,
@@ -114,7 +115,7 @@ return {
 	},
 	{
 		"ahmedkhalf/project.nvim",
-    event = "VeryLazy",
+		event = "VeryLazy",
 		config = function()
 			require("project_nvim").setup({
 				manual_mode = false,
@@ -122,5 +123,10 @@ return {
 				show_hidden = true,
 			})
 		end,
+	},
+	{
+		"ellisonleao/glow.nvim",
+		config = true,
+		cmd = "Glow",
 	},
 }

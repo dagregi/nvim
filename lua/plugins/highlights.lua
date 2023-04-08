@@ -12,6 +12,7 @@ return {
 			ensure_installed = {
 				"bash",
 				"html",
+				"css",
 				"javascript",
 				"json",
 				"lua",
@@ -20,6 +21,7 @@ return {
 				"typescript",
 				"yaml",
 			},
+			auto_install = true,
 			highlight = { enable = true },
 			indent = { enable = true },
 			incremental_selection = {

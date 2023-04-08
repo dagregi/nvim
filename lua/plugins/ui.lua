@@ -1,7 +1,7 @@
 return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
-    event = "VeryLazy",
+		event = "VeryLazy",
 		config = function()
 			require("indent_blankline").setup({
 				show_current_context = true,
@@ -134,9 +134,10 @@ return {
 					name = { trailing_slash = false, use_git_status_colors = true },
 					git_status = {
 						symbols = {
-							modified = "",
-							untracked = "",
-							unstaged = "",
+							added = " ",
+							modified = " ",
+							removed = " ",
+							unstaged = " ",
 						},
 					},
 				},
@@ -162,39 +163,15 @@ return {
 			local components = {
 				mode = {
 					"mode",
-          icon = " ",
+					icon = " ",
 					separator = {
 						left = "",
 						right = "",
 					},
 				},
-				lsp = {
-					function()
-						local buf_clients = vim.lsp.get_active_clients({ bufnr = 0 })
-						if vim.tbl_isempty(buf_clients) then
-							return "LS Inactive"
-						end
-
-						local buf_ft = vim.bo.filetype
-						local buf_client_names = {}
-
-						-- add client
-						for _, client in pairs(buf_clients) do
-							if client.name ~= "null-ls" then
-								table.insert(buf_client_names, client.name)
-							end
-						end
-
-						local clients = fn.uniq(buf_client_names)
-						return "LSP(s):[" .. table.concat(clients, " · ") .. "]"
-					end,
-					icon = "",
-					color = { fg = colors.mauve },
-					cond = conditions.hide_in_width,
-				},
 				branch = {
 					"branch",
-					icon = { " ", color = { fg = colors.flamingo, gui = "bold" } },
+					icon = { " ", color = { fg = colors.pink, gui = "bold" } },
 					color = { gui = "bold" },
 					separator = {
 						right = "",
@@ -204,6 +181,7 @@ return {
 					"filetype",
 					icon_only = true,
 					padding = { right = 0, left = 1 },
+					separator = { left = "" },
 				},
 				filename = {
 					"filename",
@@ -223,11 +201,10 @@ return {
 					sections = { "error", "warn", "info", "hint" },
 					symbols = {
 						error = " ",
-						warn = " ",
-						info = " ",
-						hint = " ",
+						warn = " ",
+						hint = " ",
+						info = " ",
 					},
-					separator = { left = "" },
 				},
 				diff = {
 					"diff",
@@ -243,22 +220,11 @@ return {
 						end
 					end,
 					symbols = {
-						added = "✚ ",
-						modified = " ",
-						removed = " ",
+						added = " ",
+						modified = " ",
+						removed = " ",
 					},
 					cond = conditions.hide_in_width,
-				},
-				location = {
-					function()
-						local line = fn.line(".")
-						local lines = fn.line("$")
-						local col = fn.virtcol(".")
-						return string.format("%3d/%d:%-2d", line, lines, col)
-					end,
-					icon = { "󰙴", color = { fg = colors.pink, gui = "bold" } },
-					separator = { left = "" },
-					color = { gui = "bold" },
 				},
 				clock = {
 					function()
@@ -283,7 +249,7 @@ return {
 							"diff",
 							"alpha",
 							"mason",
-              "specter",
+							"specter",
 							"undotree",
 							"nvterm",
 							"neo-tree",
@@ -294,16 +260,15 @@ return {
 				sections = {
 					lualine_a = { components.mode },
 					lualine_b = { components.branch },
-          lualine_c = { components.diff },
+					lualine_c = { components.diff, components.diagnostics },
 					lualine_x = {
-						components.lsp,
 						components.filesize,
 					},
-					lualine_y = { components.diagnostics },
+					lualine_y = { components.filetype, components.filename },
 					lualine_z = { components.clock },
 				},
 				inactive_sections = {
-					--lualine_a = { components.filetype, components.filename },
+					lualine_a = {},
 					lualine_b = {},
 					lualine_c = {},
 					lualine_x = {},
@@ -323,8 +288,8 @@ return {
 		},
 		config = function()
 			require("barbecue").setup({
-        theme = "catppuccin",
-      })
+				theme = "catppuccin",
+			})
 		end,
 	},
 	{
@@ -404,7 +369,7 @@ return {
 	},
 	{
 		"akinsho/bufferline.nvim",
-    after = "catppuccin",
+		after = "catppuccin",
 		event = "BufReadPre",
 		keys = {
 			{ "[b", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev buffer" },
@@ -470,7 +435,7 @@ return {
 							hint_diagnostic = { fg = colors.surface1 },
 						},
 					},
-        }),
+				}),
 			}
 		end,
 	},
