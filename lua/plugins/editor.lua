@@ -39,7 +39,7 @@ return {
 	},
 	{
 		"numToStr/Comment.nvim",
-		event = "VeryLazy",
+		event = "BufReadPost",
 		opts = function()
 			local ok, tcs = pcall(require, "ts_context_commentstring.integrations.comment_nvim")
 			return {
@@ -51,7 +51,7 @@ return {
 	{
 		"kylechui/nvim-surround",
 		version = "*",
-		event = "VeryLazy",
+		event = "BufReadPost",
 		config = function()
 			require("nvim-surround").setup({
 				-- Configuration here, or leave empty to use defaults

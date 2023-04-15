@@ -1,7 +1,7 @@
 return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		event = "VeryLazy",
+		event = "BufReadPost",
 		config = function()
 			require("indent_blankline").setup({
 				show_current_context = true,
@@ -56,7 +56,7 @@ return {
 	},
 	{
 		"folke/noice.nvim",
-		event = "VeryLazy",
+		event = "BufReadPost",
 		dependencies = { "rcarriga/nvim-notify" },
 		config = function()
 			require("noice").setup({
@@ -147,9 +147,8 @@ return {
 	},
 	{
 		"nvim-lualine/lualine.nvim",
-		event = "VeryLazy",
+		event = "BufReadPost",
 		config = function()
-			local fn, api = vim.fn, vim.api
 			local colors = require("catppuccin.palettes").get_palette()
 
 			local conditions = {
@@ -280,7 +279,7 @@ return {
 	},
 	{
 		"utilyre/barbecue.nvim",
-		lazy = false,
+		event = "BufReadPre",
 		name = "barbecue",
 		version = "*",
 		dependencies = {

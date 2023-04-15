@@ -4,8 +4,15 @@ return {
 		lazy = true,
 	},
 	{
+		"ethanholz/nvim-lastplace",
+		event = "BufReadPost",
+		config = function()
+			require("nvim-lastplace").setup({})
+		end,
+	},
+	{
 		"folke/persistence.nvim",
-		event = { "BufReadPre", "VeryLazy" },
+		event = { "BufReadPre" },
 		opts = { options = { "buffers", "curdir", "tabpages", "winsize", "help", "globals" } },
 	},
 	{
@@ -31,17 +38,10 @@ return {
 	},
 	{
 		"RRethy/vim-illuminate",
-		event = { "BufReadPost", "BufNewFile", "VeryLazy" },
+		event = { "BufReadPost", "BufNewFile" },
 		opts = { delay = 100 },
 		config = function(_, opts)
 			require("illuminate").configure(opts)
-		end,
-	},
-	{
-		"lewis6991/impatient.nvim",
-		lazy = false,
-		config = function()
-			require("impatient")
 		end,
 	},
 	{
@@ -59,7 +59,7 @@ return {
 	},
 	{
 		"folke/which-key.nvim",
-		event = "VeryLazy",
+		event = "BufReadPost",
 		config = function()
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300
@@ -115,7 +115,7 @@ return {
 	},
 	{
 		"ahmedkhalf/project.nvim",
-		event = "VeryLazy",
+		event = "BufReadPost",
 		config = function()
 			require("project_nvim").setup({
 				manual_mode = false,
