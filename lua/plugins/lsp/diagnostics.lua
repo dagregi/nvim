@@ -38,7 +38,7 @@ function M.setup()
 				return d.source and fmt("%s: %s", string.gsub(d.source, "%.$", ""), d.message) or d.message
 			end,
 			suffix = function(d)
-				local code = d.code or (d.user_data and d.user_data.lsp.code)
+				local code = d.code
 				local suffix = code and fmt(" (%s)", code) or ""
 				return suffix, "Comment"
 			end,
