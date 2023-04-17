@@ -1,7 +1,6 @@
 return {
 	{
 		"windwp/nvim-autopairs",
-		lazy = true,
 		event = "InsertEnter",
 		dependencies = { "hrsh7th/nvim-cmp" },
 		opts = {
@@ -39,7 +38,7 @@ return {
 	},
 	{
 		"numToStr/Comment.nvim",
-		event = "BufReadPost",
+		event = "ModeChanged",
 		opts = function()
 			local ok, tcs = pcall(require, "ts_context_commentstring.integrations.comment_nvim")
 			return {
@@ -48,19 +47,18 @@ return {
 			}
 		end,
 	},
-	{
-		"kylechui/nvim-surround",
-		version = "*",
-		event = "BufReadPost",
-		config = function()
-			require("nvim-surround").setup({
-				-- Configuration here, or leave empty to use defaults
-			})
-		end,
-	},
+	--	{
+	--		"kylechui/nvim-surround",
+	--		version = "*",
+	--		event = "BufReadPost",
+	--		config = function()
+	--			require("nvim-surround").setup({
+	--				-- Configuration here, or leave empty to use defaults
+	--			})
+	--		end,
+	--	},
 	{
 		"lewis6991/gitsigns.nvim",
-		lazy = true,
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("gitsigns").setup({

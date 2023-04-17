@@ -1,18 +1,16 @@
 return {
 	{
 		"nvim-pack/nvim-spectre",
-		lazy = true,
 	},
 	{
 		"ethanholz/nvim-lastplace",
-		event = "BufReadPost",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("nvim-lastplace").setup({})
 		end,
 	},
 	{
 		"folke/persistence.nvim",
-		event = { "BufReadPre" },
 		opts = { options = { "buffers", "curdir", "tabpages", "winsize", "help", "globals" } },
 	},
 	{
@@ -46,7 +44,6 @@ return {
 	},
 	{
 		"nvim-tree/nvim-web-devicons",
-		lazy = true,
 	},
 	{
 		"rcarriga/nvim-notify",
@@ -59,7 +56,7 @@ return {
 	},
 	{
 		"folke/which-key.nvim",
-		event = "BufReadPost",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300
@@ -115,7 +112,6 @@ return {
 	},
 	{
 		"ahmedkhalf/project.nvim",
-		event = "BufReadPost",
 		config = function()
 			require("project_nvim").setup({
 				manual_mode = false,
@@ -128,5 +124,12 @@ return {
 		"ellisonleao/glow.nvim",
 		config = true,
 		cmd = "Glow",
+		keys = {
+			{
+				"<leader>cg",
+				"<Cmd>Glow<Cr>",
+				desc = "Glow",
+			},
+		},
 	},
 }

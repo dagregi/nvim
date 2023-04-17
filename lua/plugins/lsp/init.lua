@@ -140,6 +140,10 @@ local M = {
 					-- lua
 					nls.builtins.formatting.stylua,
 
+					-- bash
+					nls.builtins.formatting.beautysh,
+					nls.builtins.diagnostics.shellcheck,
+
 					--typescript
 					nls.builtins.formatting.prettierd,
 					nls.builtins.diagnostics.eslint_d,

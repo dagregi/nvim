@@ -1,7 +1,7 @@
 return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		event = "BufReadPost",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("indent_blankline").setup({
 				show_current_context = true,
@@ -56,7 +56,7 @@ return {
 	},
 	{
 		"folke/noice.nvim",
-		event = "BufReadPost",
+		event = { "BufReadPost", "BufNewFile" },
 		dependencies = { "rcarriga/nvim-notify" },
 		config = function()
 			require("noice").setup({
@@ -147,7 +147,7 @@ return {
 	},
 	{
 		"nvim-lualine/lualine.nvim",
-		event = "BufReadPost",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			local colors = require("catppuccin.palettes").get_palette()
 
@@ -279,7 +279,7 @@ return {
 	},
 	{
 		"utilyre/barbecue.nvim",
-		event = "BufReadPre",
+		event = { "BufReadPost", "BufNewFile" },
 		name = "barbecue",
 		version = "*",
 		dependencies = {
@@ -369,7 +369,7 @@ return {
 	{
 		"akinsho/bufferline.nvim",
 		after = "catppuccin",
-		event = "BufReadPre",
+		event = { "BufReadPost", "BufNewFile" },
 		keys = {
 			{ "[b", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev buffer" },
 			{ "]b", "<Cmd>BufferLineCycleNext<CR>", desc = "Next buffer" },

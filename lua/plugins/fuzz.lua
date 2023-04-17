@@ -1,7 +1,6 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		lazy = true,
 		cmd = "Telescope",
 		keys = {
 			--file
@@ -102,8 +101,8 @@ return {
 		end,
 		dependencies = {
 			"nvim-telescope/telescope-live-grep-args.nvim",
-			{ "nvim-lua/plenary.nvim", lazy = true },
-			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = true },
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
 	},
 }
