@@ -101,11 +101,6 @@ return {
 					winbar = true,
 					separator = "",
 					content_layout = "center",
-					tab_labels = {
-						filesystem = " Files",
-						buffers = " Buffers",
-						git_status = " Git",
-					},
 				},
 				enable_git_status = true,
 				enable_diagnostics = true,
@@ -368,7 +363,6 @@ return {
 	},
 	{
 		"akinsho/bufferline.nvim",
-		after = "catppuccin",
 		event = { "BufReadPost", "BufNewFile" },
 		keys = {
 			{ "[b", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev buffer" },
