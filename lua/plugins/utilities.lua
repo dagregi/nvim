@@ -2,6 +2,9 @@ return {
 	{
 		"nvim-pack/nvim-spectre",
 	},
+	{ "mbbill/undotree", keys = {
+		{ "<leader>cu", vim.cmd.UndotreeToggle, desc = "Undotree" },
+	} },
 	{
 		"ethanholz/nvim-lastplace",
 		event = { "BufReadPost", "BufNewFile" },

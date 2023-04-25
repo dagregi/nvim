@@ -31,3 +31,23 @@ vim.keymap.set("v", "<", "<gv", { desc = "Visual shifting" })
 --Buffer
 vim.keymap.set("n", "<leader>bd", "<Cmd>bdelete!<CR>", { desc = "Delete current" })
 vim.keymap.set("n", "<leader>bD", "<Cmd>%bdelete<Bar>edit#<Bar>bdelete#<CR>", { desc = "Delete others" })
+
+-- yanked from ThePrimeagen
+vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+-- greatest remap ever
+vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Better paste" })
+
+-- next greatest remap ever : asbjornHaland
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Better yank" })
+
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Better delete" })
+
+vim.keymap.set("n", "Q", "<nop>")
+
+vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
