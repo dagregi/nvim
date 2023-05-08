@@ -21,8 +21,9 @@ return {
 					end,
 				},
 				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
+					{ name = "nvim_lsp" },
+					{ name = "path" },
 					{
 						name = "buffer",
 						option = {
@@ -32,7 +33,6 @@ return {
 						},
 						keyword_length = 2,
 					},
-					{ name = "path" },
 				}),
 				formatting = {
 					fields = { "kind", "abbr", "menu" },
@@ -70,7 +70,7 @@ return {
 						})(entry, vim_item)
 						local strings = vim.split(kind.kind, "%s", { trimempty = true })
 						kind.kind = " " .. (strings[1] or "") .. " "
-						kind.menu = "    (" .. (strings[2] or "") .. ")"
+						kind.menu = "    " .. (strings[2] or "") .. ""
 						return kind
 					end,
 				},
@@ -95,8 +95,8 @@ return {
 					end, { "i", "s", "c" }),
 					["<CR>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { "i", "c" }),
 					["<C-e>"] = { i = cmp.mapping.abort(), c = cmp.mapping.close() },
-					["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-8), { "i", "c" }),
-					["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(8), { "i", "c" }),
+					["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-8), { "i", "c" }),
+					["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(8), { "i", "c" }),
 					-- ["<C-c>"] = cmp.mapping.complete(),
 					["<Down>"] = cmp.mapping(
 						cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),

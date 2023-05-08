@@ -11,9 +11,9 @@ vim.keymap.set(
 
 --Better saving and quiting
 vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Save file" })
-vim.keymap.set("n", "<leader>W", "<cmd>w<CR>", { desc = "Save files" })
+vim.keymap.set("n", "<leader>W", "<cmd>wa<CR>", { desc = "Save files" })
 vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Quit" })
-vim.keymap.set("n", "<leader>Q", "<cmd>q!<CR>", { desc = "Force quit" })
+vim.keymap.set("n", "<leader>Q", "<cmd>qa!<CR>", { desc = "Force quit" })
 
 -- Package manager
 vim.keymap.set("n", "<leader>cm", "<Cmd>Mason<CR>", { desc = "Mason" })

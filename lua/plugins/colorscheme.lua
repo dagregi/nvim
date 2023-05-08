@@ -84,7 +84,7 @@ return {
 							link = "TermCursor",
 						},
 
-						PmenuSel = { bg = colors.base, bold = true },
+						PmenuSel = { bg = colors.crust, bold = true },
 
 						CmpItemKindSnippet = { fg = C.base, bg = C.mauve },
 						CmpItemKindKeyword = { fg = C.base, bg = C.red },
@@ -114,12 +114,12 @@ return {
 						CmpItemKindCopilot = { fg = C.base, bg = C.teal },
 
 						-- overrider
-						CmpItemMenu = { fg = colors.subtext1 },
-						FloatBorder = { fg = colors.overlay1 },
+						CmpItemMenu = { fg = colors.subtext0 },
+						FloatBorder = { fg = colors.surface0 },
 						TelescopeBorder = { fg = colors.overlay1 },
 						WhichKeyBorder = { fg = colors.overlay1 },
 						NeoTreeFloatBorder = { fg = colors.overlay1 },
-						LspInfoBorder = { fg = colors.overlay1 },
+						LspInfoBorder = { fg = colors.surface0 },
 
 						IndentBlanklineContextChar = { fg = colors.overlay0 },
 					}

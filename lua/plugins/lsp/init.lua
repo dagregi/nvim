@@ -36,16 +36,16 @@ local M = {
 		},
 		opts = {
 			servers = {
-				eslint = {
-					on_attach = function()
-						require("config.utils").augroup("AutoFixOnSave", {
-							event = "BufWritePre",
-							pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
-							command = "EslintFixAll",
-							desc = "Automatically execute `eslint fix` on save",
-						})
-					end,
-				},
+				-- eslint = {
+				-- 	on_attach = function()
+				-- 		require("config.utils").augroup("AutoFixOnSave", {
+				-- 			event = "BufWritePre",
+				-- 			pattern = { "*.ts", "*.tsx", "*.js", "*.svelte" },
+				-- 			command = "EslintFixAll",
+				-- 			desc = "Automatically execute `eslint fix` on save",
+				-- 		})
+				-- 	end,
+				-- },
 				tsserver = {
 					settings = {
 						completions = {
