@@ -46,6 +46,21 @@ local M = {
 				-- 		})
 				-- 	end,
 				-- },
+				jsonls = {
+          -- lazy-load schemastore when needed
+          on_new_config = function(new_config)
+            new_config.settings.json.schemas = new_config.settings.json.schemas or {}
+            vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas())
+          end,
+          settings = {
+            json = {
+              format = {
+                enable = true,
+              },
+              validate = { enable = true },
+            },
+          },
+        },
 				tsserver = {
 					settings = {
 						completions = {
@@ -70,7 +85,6 @@ local M = {
 		},
 		config = function(_, opts)
 			require("plugins.lsp.diagnostics").setup()
-
 			require("plugins.lsp.handlers").setup()
 
 			require("config.utils").on_attach(function(client, buffer)
@@ -141,16 +155,16 @@ local M = {
 					nls.builtins.formatting.stylua,
 
 					-- bash
-					nls.builtins.formatting.beautysh,
-					nls.builtins.diagnostics.shellcheck,
+					-- nls.builtins.formatting.beautysh,
+					-- nls.builtins.diagnostics.shellcheck,
 
 					--typescript
 					nls.builtins.formatting.prettierd,
 					nls.builtins.diagnostics.eslint_d,
 
 					-- markdown
-					nls.builtins.formatting.markdownlint,
-					nls.builtins.diagnostics.markdownlint,
+					-- nls.builtins.formatting.markdownlint,
+					-- nls.builtins.diagnostics.markdownlint,
 				},
 				root_dir = require("null-ls.utils").root_pattern("Makefile", ".vim", ".git"),
 			}

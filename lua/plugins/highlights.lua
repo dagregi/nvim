@@ -17,6 +17,7 @@ return {
 				"json",
 				"lua",
 				"markdown",
+				"svelte",
 				"tsx",
 				"typescript",
 				"yaml",
