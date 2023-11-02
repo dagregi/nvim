@@ -12,20 +12,23 @@ return {
 				formatting.stylua,
 
 				--bash
-				formatting.beautysh,
-				diagnostics.shellcheck,
+				formatting.shfmt,
+				-- diagnostics.shellcheck,
 
 				--typescript
 				formatting.prettierd,
 				diagnostics.eslint_d,
 
 				--python
-				formatting.black,
-				diagnostics.pylint,
+				-- formatting.black,
+				-- diagnostics.pylint,
+
+				--gdscript
+				formatting.gdformat,
+				diagnostics.gdlint,
 
 				--go
-				formatting.gofmt,
-				diagnostics.golangci_lint,
+				-- formatting.gofmt,
 
 				--rust
 				formatting.rustfmt,
