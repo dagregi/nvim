@@ -2,6 +2,10 @@ return {
 	"nvim-tree/nvim-web-devicons",
 	"nvim-pack/nvim-spectre",
 	{
+		"christoomey/vim-tmux-navigator",
+		event = "BufReadPre",
+	},
+	{
 		"folke/persistence.nvim",
 		opts = { options = { "buffers", "curdir", "tabpages", "winsize", "help", "globals" } },
 	},
@@ -46,9 +50,5 @@ return {
 	{
 		"RRethy/vim-illuminate",
 		event = { "BufReadPost", "BufNewFile" },
-		opts = { delay = 100 },
-		config = function(_, opts)
-			require("illuminate").configure(opts)
-		end,
 	},
 }

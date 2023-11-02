@@ -8,5 +8,5 @@ return {
 				char = "▏",
 			},
 		})
-    end,
+	end,
 }

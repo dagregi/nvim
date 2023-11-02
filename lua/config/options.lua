@@ -20,12 +20,14 @@ opt.guicursor = ""
 
 -- display
 o.signcolumn = "yes"
+opt.scrolloff = 8
+opt.signcolumn = "yes"
+opt.isfname:append("@-@")
 
 o.termguicolors = true
 
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 opt.autowrite = true
-opt.clipboard = "unnamedplus"
 
 -- yanked from ThePrimeagen
 opt.swapfile = false
@@ -35,10 +37,6 @@ opt.undofile = true
 
 opt.hlsearch = false
 opt.incsearch = true
-
-opt.scrolloff = 8
-opt.signcolumn = "yes"
-opt.isfname:append("@-@")
 
 opt.updatetime = 50
 

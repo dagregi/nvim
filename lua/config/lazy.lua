@@ -14,7 +14,6 @@ require("config.keymaps")
 require("lazy").setup({
 	spec = "plugins",
 	defaults = { lazy = true },
-	install = { colorscheme = { "catppuccin" } },
 	performance = {
 		rtp = {
 			disabled_plugins = {

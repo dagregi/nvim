@@ -20,6 +20,7 @@ return {
 			},
 			auto_install = true,
 			highlight = { enable = true },
+			textobjects = { enable = true },
 			indent = { enable = true },
 			context_commentstring = { enable = true, enable_autocmd = false },
 		},

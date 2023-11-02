@@ -57,7 +57,6 @@ return {
 							unnamed = "",
 						},
 					},
-					-- { require('NeoComposer.ui').status_recording },
 				},
 				lualine_x = {
 					{
@@ -104,7 +103,6 @@ return {
 					end,
 				},
 			},
-			extensions = { "nvim-dap-ui", "quickfix" },
 		}
 	end,
 }
