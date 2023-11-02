@@ -28,9 +28,7 @@ return {
 
 	opts = {
 		ensure_installed = {
-			"tsserver",
-			"gopls",
-			"pyright",
+			-- Servers to be installed during startup
 		},
 	},
 
@@ -41,7 +39,10 @@ return {
 		require("mason-lspconfig").setup(opts)
 
 		local lspconfig = require("lspconfig")
+		-- Server configurations
 		lspconfig.lua_ls.setup({})
+		lspconfig.pyright.setup({})
+		lspconfig.svelte.setup({})
 		lspconfig.tsserver.setup({
 			settings = {
 				completions = {
@@ -50,8 +51,12 @@ return {
 			},
 		})
 		lspconfig.rust_analyzer.setup({
-			diagnostics = {
-				enable = true,
+			settings = {
+				["rust-analyzer"] = {
+					check = {
+						command = "clippy",
+					},
+				},
 			},
 		})
 	end,
