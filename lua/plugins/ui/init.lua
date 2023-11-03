@@ -7,6 +7,7 @@ local M = {
 	require("plugins.ui.whichkey"),
 	require("plugins.ui.lualine"),
 	require("plugins.ui.bufferline"),
+	require("plugins.ui.noice"),
 }
 
 return M
