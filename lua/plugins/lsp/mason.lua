@@ -41,7 +41,6 @@ return {
 		local lspconfig = require("lspconfig")
 		-- Server configurations
 		lspconfig.lua_ls.setup({})
-		lspconfig.pyright.setup({})
 		lspconfig.svelte.setup({})
 		lspconfig.tsserver.setup({
 			settings = {
