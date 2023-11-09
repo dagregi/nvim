@@ -1,5 +1,5 @@
 local M = {
-	require("plugins.lsp.completion"),
+	require("plugins.lsp.comp"),
 	require("plugins.lsp.mason"),
 	require("plugins.lsp.null-ls"),
 }
