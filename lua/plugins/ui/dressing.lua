@@ -39,5 +39,5 @@ return {
 			},
 		}
 	end,
-	dependencies = { "folke/noice.nvim" },
+	dependencies = { "MunifTanjim/nui.nvim", "folke/noice.nvim" },
 }

@@ -1,6 +1,5 @@
 return {
 	"nvim-tree/nvim-web-devicons",
-	"nvim-pack/nvim-spectre",
 	{
 		"christoomey/vim-tmux-navigator",
 		event = "BufReadPre",

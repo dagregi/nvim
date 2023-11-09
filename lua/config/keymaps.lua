@@ -1,14 +1,5 @@
 -- Keymaps go here
 
---Spectre
-vim.keymap.set("n", "<leader>sr", '<cmd>lua require("spectre").open()<CR>', { desc = "Open Spectre" })
-vim.keymap.set(
-	"n",
-	"<leader>sw",
-	'<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
-	{ desc = "Search current word" }
-)
-
 --lsp things
 vim.keymap.set({ "n", "v" }, "<leader>cf", vim.lsp.buf.format, { desc = "Format document" })
 vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
