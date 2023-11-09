@@ -32,9 +32,19 @@ return {
 				"svelte",
 				"javascript",
 				"typescript",
-				"javascriptreact",
-				"typescriptreact",
 			},
+		},
+	},
+	{
+		"kylechui/nvim-surround",
+		event = "BufReadPost",
+		keys = {
+			{ "ys", desc = "Add surround" },
+			{ "ds", desc = "Delete surround" },
+			{ "cs", desc = "Replace surround" },
+		},
+		opts = {
+			move_cursor = false,
 		},
 	},
 }
