@@ -26,37 +26,9 @@ return {
 		},
 	},
 
-	opts = {
-		ensure_installed = {
-			-- Servers to be installed during startup
-		},
-	},
-
-	config = function(_, opts)
+	config = function()
+		require("plugins.lsp.lsp-config").setup()
 		require("plugins.lsp.diagnostics").setup()
 		require("plugins.lsp.handlers").setup()
-
-		require("mason-lspconfig").setup(opts)
-
-		local lspconfig = require("lspconfig")
-		-- Server configurations
-		lspconfig.lua_ls.setup({})
-		lspconfig.svelte.setup({})
-		lspconfig.tsserver.setup({
-			settings = {
-				completions = {
-					completeFunctionCalls = true,
-				},
-			},
-		})
-		lspconfig.rust_analyzer.setup({
-			settings = {
-				["rust-analyzer"] = {
-					check = {
-						command = "clippy",
-					},
-				},
-			},
-		})
 	end,
 }
