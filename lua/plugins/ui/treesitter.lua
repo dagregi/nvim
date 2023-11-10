@@ -33,6 +33,7 @@ return {
 			textobjects = {
 				select = {
 					enable = true,
+					lookahead = true,
 					keymaps = {
 						["ac"] = { query = "@function.outer", desc = "TS: all class" },
 						["ic"] = { query = "@function.inner", desc = "TS: inner class" },
@@ -45,8 +46,9 @@ return {
 			},
 		},
 		config = function(_, opts)
-			--require("nvim-treesitter.install").prefer_git=true
-			require("nvim-treesitter.configs").setup(opts)
+			vim.defer_fn(function()
+				require("nvim-treesitter.configs").setup(opts)
+			end, 0)
 		end,
 	},
 }
