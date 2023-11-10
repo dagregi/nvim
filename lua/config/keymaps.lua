@@ -1,11 +1,5 @@
 -- Keymaps go here
 
---lsp things
-vim.keymap.set({ "n", "v" }, "<leader>cf", vim.lsp.buf.format, { desc = "Format document" })
-vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
-vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
-vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
-
 --Better saving and quiting
 vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Save file" })
 vim.keymap.set("n", "<leader>W", "<cmd>wa<CR>", { desc = "Save files" })
