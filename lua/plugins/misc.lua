@@ -1,5 +1,6 @@
 return {
 	"nvim-tree/nvim-web-devicons",
+    "ThePrimeagen/vim-be-good",
 	{
 		"christoomey/vim-tmux-navigator",
 		event = "BufReadPre",
@@ -18,6 +19,10 @@ return {
 			},
 		},
 	},
+    {
+        "ThePrimeagen/harpoon",
+        opts = {}
+    },
 	{
 		"numToStr/Comment.nvim",
 		event = "ModeChanged",
