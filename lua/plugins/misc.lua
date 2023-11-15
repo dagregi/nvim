@@ -1,9 +1,9 @@
 return {
 	"nvim-tree/nvim-web-devicons",
-    "ThePrimeagen/vim-be-good",
+	"ThePrimeagen/vim-be-good",
 	{
 		"christoomey/vim-tmux-navigator",
-		event = "BufReadPre",
+		event = "BufReadPost",
 	},
 	{
 		"folke/persistence.nvim",
@@ -19,10 +19,10 @@ return {
 			},
 		},
 	},
-    {
-        "ThePrimeagen/harpoon",
-        opts = {}
-    },
+	{
+		"ThePrimeagen/harpoon",
+		opts = {},
+	},
 	{
 		"numToStr/Comment.nvim",
 		event = "ModeChanged",
@@ -32,13 +32,6 @@ return {
 				ignore = "^$",
 				pre_hook = ok and tcs and tcs.create_pre_hook() or nil,
 			}
-		end,
-	},
-	{
-		"ethanholz/nvim-lastplace",
-		event = { "BufReadPost", "BufNewFile" },
-		config = function()
-			require("nvim-lastplace").setup({})
 		end,
 	},
 	{
@@ -53,6 +46,6 @@ return {
 	},
 	{
 		"RRethy/vim-illuminate",
-		event = { "BufReadPost", "BufNewFile" },
+		event = "BufReadPost",
 	},
 }
