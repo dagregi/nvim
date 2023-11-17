@@ -1,6 +1,6 @@
 return {
 	"nvim-tree/nvim-web-devicons",
-	"ThePrimeagen/vim-be-good",
+	{ "j-hui/fidget.nvim", event = "BufRead", opts = {} },
 	{
 		"christoomey/vim-tmux-navigator",
 		event = "BufReadPost",
@@ -18,10 +18,6 @@ return {
 				desc = "Undotree",
 			},
 		},
-	},
-	{
-		"ThePrimeagen/harpoon",
-		opts = {},
 	},
 	{
 		"numToStr/Comment.nvim",

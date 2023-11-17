@@ -1,8 +1,7 @@
 return {
 	"rose-pine/neovim",
 	name = "rose-pine",
-	event = "VimEnter",
-	priority = 1000,
+	event = "UiEnter",
 	opts = {
 		variant = "main",
 		bold_vert_split = false,

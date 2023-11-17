@@ -3,9 +3,9 @@ local M = {}
 local fmt = string.format
 
 local icons = {
-	error = " ",
+	error = "󰅚 ",
 	warn = " ",
-	hint = " ",
+	hint = "󰌶 ",
 	info = " ",
 }
 

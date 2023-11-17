@@ -14,24 +14,17 @@ return {
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch" },
+				lualine_b = {
+                    { "branch", icon = "" },
+                },
 				lualine_c = {
-					{
-						"diagnostics",
-						symbols = {
-							error = " ",
-							warn = " ",
-							hint = " ",
-							info = " ",
-						},
-					},
+                    { "diagnostics" },
 					{
 						"filetype",
 						icon_only = true,
 						separator = "",
 						padding = {
 							left = 1,
-							right = 0,
 						},
 					},
 					{
@@ -43,33 +36,18 @@ return {
 								package.config:sub(1, 1)
 							)
 						end,
-						symbols = {
-							modified = "  ",
-							readonly = "",
-							unnamed = "",
-						},
 					},
 				},
 				lualine_x = {
-					{
-						"diff",
-						symbols = {
-							added = " ",
-							modified = " ",
-							removed = " ",
-						},
-					},
 				},
 				lualine_y = {
-					{ "progress", separator = " ", padding = { left = 1, right = 0 } },
-					{ "location", padding = { left = 0, right = 1 } },
+                    "diff",
+                    { "searchcount" },
+                    { "progress" },
 				},
 				lualine_z = {
-					{ "searchcount" },
-					{ "selectioncount" },
-					function()
-						return " " .. os.date("%R")
-					end,
+                    { "selectioncount" },
+					{ "location", padding = { left = 0, right = 1 } },
 				},
 			},
 		}

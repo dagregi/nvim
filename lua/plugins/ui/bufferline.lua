@@ -9,27 +9,25 @@ return {
 		{ "<leader>bL", "<Cmd>BufferLineCloseLeft<CR>", desc = "Close to the left" },
 		{ "<leader>bR", "<Cmd>BufferLineCloseRight<CR>", desc = "Close to the right" },
 	},
-	opts = function()
-		return {
-			options = {
-				buffer_close_icon = " 󰅖 ",
-				modified_icon = " ● ",
-				close_icon = " 󰅖 ",
-				left_trunc_marker = "  ",
-				right_trunc_marker = "  ",
-				diagnostics = "nvim_lsp",
-				offsets = {
-					{
-						filetype = "undotree",
-						text = "Undotree",
-						separator = true,
-						text_align = "center",
-						highlight = "PanelHeading",
-					},
+	opts = {
+		options = {
+			numbers = "ordinal",
+			separator_style = { "[", "]" },
+			buffer_close_icon = "",
+			modified_icon = " ●",
+			close_icon = "",
+			left_trunc_marker = "  ",
+			right_trunc_marker = "  ",
+			diagnostics = "nvim_lsp",
+			offsets = {
+				{
+					filetype = "undotree",
+					text = "Undotree",
+					separator = true,
+					text_align = "center",
+					highlight = "PanelHeading",
 				},
-				color_icons = true,
-				sort_by = "insert_after_current",
 			},
-		}
-	end,
+		},
+	},
 }

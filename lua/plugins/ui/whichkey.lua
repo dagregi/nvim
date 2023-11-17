@@ -6,8 +6,7 @@ return {
 		vim.o.timeoutlen = 300
 		require("which-key").setup({
 			window = {
-				winblend = 15,
-				border = "rounded",
+				winblend = 35,
 			},
 			layout = {
 				spacing = 5,
@@ -16,15 +15,15 @@ return {
 		})
 		require("which-key").register({
 			["<leader>"] = {
-				s = { name = "  " .. " search" },
-				t = { name = "  " .. " terminal" },
-				g = { name = "  " .. " git" },
+				s = { name = "  " .. "search" },
+				t = { name = "  " .. "terminal" },
+				g = { name = "  " .. "git" },
 				gh = { name = "+ hunks" },
-				b = { name = "  " .. " buffers" },
-				l = { name = "  " .. " lsp" },
-				c = { name = "  " .. " code" },
-				f = { name = "  " .. " files/find" },
-				x = { name = "  " .. " trouble" },
+				b = { name = "  " .. "buffers" },
+				l = { name = "  " .. "lsp" },
+				c = { name = "  " .. "code" },
+				f = { name = "  " .. "files/find" },
+				x = { name = "  " .. "trouble" },
 			},
 		})
 	end,

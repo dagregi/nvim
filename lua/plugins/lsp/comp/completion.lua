@@ -7,10 +7,9 @@ return {
 			defaults = {
 				window = {
 					completion = {
-						border = "rounded",
 						winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:Visual,Search:None",
 						col_offset = -3,
-						side_padding = 0,
+						side_padding = 1,
 					},
 					documentation = cmp.config.window.bordered(),
 				},

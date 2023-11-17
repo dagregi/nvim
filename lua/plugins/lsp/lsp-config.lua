@@ -50,12 +50,7 @@ function M.setup()
 	})
 	-- TODO: look for a better way to write this code
 	for _, server in pairs(vim.tbl_keys(M._servers)) do
-		lspconfig[server].setup({
-			capabilities = capabilities,
-			on_attach = require("plugins.lsp.lsp-keymaps").on_attach(),
-			settings = M._servers[server],
-			filetypes = (M._servers[server] or {}).filetypes,
-		})
+		lspconfig[server].setup(M._servers[server])
 	end
 end
 
