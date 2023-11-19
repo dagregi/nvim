@@ -1,6 +1,5 @@
 return {
 	"stevearc/oil.nvim",
-	event = { "BufReadPost", "BufNewFile" },
 	keys = {
 		{ "-", "<CMD>Oil<CR>", desc = "Open oil" },
 		{ "<C-n>", "<CMD>Oil --float<CR>", desc = "Open oil(float)" },

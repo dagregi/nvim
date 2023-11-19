@@ -1,6 +1,6 @@
 return {
 	"akinsho/bufferline.nvim",
-	event = { "BufReadPost", "BufNewFile" },
+	event = "BufAdd",
 	keys = {
 		{ "[b", "<Cmd>BufferLineMovePrev<CR>", desc = "Move prev" },
 		{ "]b", "<Cmd>BufferLineMoveNext<CR>", desc = "Move next" },
@@ -12,7 +12,6 @@ return {
 	opts = {
 		options = {
 			numbers = "ordinal",
-			separator_style = { "[", "]" },
 			buffer_close_icon = "",
 			modified_icon = " ●",
 			close_icon = "",

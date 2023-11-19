@@ -14,7 +14,8 @@ return {
 		{ "<leader>fd", "<Cmd>Telescope diagnostics<CR>", desc = "List diagnostics" },
 		{ "<leader>fR", "<Cmd>Telescope resume<CR>", desc = "Resume" },
 		-- git
-		{ "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
+		{ "<leader>gb", "<cmd>Telescope git_branches<CR>", desc = "branches" },
+        { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
 		{ "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
 		-- search
 		{ "<leader>sd", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },

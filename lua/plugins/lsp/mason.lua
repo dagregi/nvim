@@ -1,11 +1,10 @@
 return {
 	"williamboman/mason-lspconfig.nvim",
-	event = { "BufReadPre", "BufNewFile" },
+	event = { "BufReadPost", "BufNewFile" },
 	dependencies = {
 		"neovim/nvim-lspconfig",
 		{
 			"ray-x/lsp_signature.nvim",
-			event = "BufReadPost",
 			opts = {
 				bind = true,
 				hint_scheme = "Comment",

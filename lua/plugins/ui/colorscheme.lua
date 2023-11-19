@@ -5,6 +5,7 @@ return {
 	opts = {
 		variant = "main",
 		bold_vert_split = false,
+        disable_background = true,
 		dim_nc_background = true,
 		disable_italics = true,
 	},

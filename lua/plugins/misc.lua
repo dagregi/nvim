@@ -1,6 +1,6 @@
 return {
 	"nvim-tree/nvim-web-devicons",
-	{ "j-hui/fidget.nvim", event = "BufRead", opts = {} },
+	{ "j-hui/fidget.nvim", event = "BufReadPost", opts = {} },
 	{
 		"christoomey/vim-tmux-navigator",
 		event = "BufReadPost",
