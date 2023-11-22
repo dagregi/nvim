@@ -1,11 +1,11 @@
 return {
 	"rose-pine/neovim",
 	name = "rose-pine",
-	event = "UiEnter",
+	event = "VimEnter",
 	opts = {
 		variant = "main",
 		bold_vert_split = false,
-        disable_background = true,
+		disable_background = true,
 		dim_nc_background = true,
 		disable_italics = true,
 	},

@@ -15,10 +15,10 @@ return {
 			sections = {
 				lualine_a = { "mode" },
 				lualine_b = {
-                    { "branch", icon = "" },
-                },
+					{ "branch", icon = "" },
+				},
 				lualine_c = {
-                    { "diagnostics" },
+					{ "diagnostics" },
 					{
 						"filetype",
 						icon_only = true,
@@ -38,15 +38,14 @@ return {
 						end,
 					},
 				},
-				lualine_x = {
-				},
+				lualine_x = {},
 				lualine_y = {
-                    "diff",
-                    { "searchcount" },
-                    { "progress" },
+					"diff",
+					{ "searchcount" },
+					{ "progress" },
 				},
 				lualine_z = {
-                    { "selectioncount" },
+					{ "selectioncount" },
 					{ "location", padding = { left = 0, right = 1 } },
 				},
 			},

@@ -37,11 +37,11 @@ return {
 	},
 	{
 		"kylechui/nvim-surround",
-		event = "BufReadPost",
 		keys = {
-			{ "ys", desc = "Add surround" },
-			{ "ds", desc = "Delete surround" },
-			{ "cs", desc = "Replace surround" },
+			{ "ys", desc = "Add surround", mode = { "n" } },
+			{ "ds", desc = "Delete surround", mode = { "n" } },
+			{ "cs", desc = "Replace surround", mode = { "n" } },
+			{ "S", desc = "Add surround", mode = { "v" } },
 		},
 		opts = {
 			move_cursor = false,

@@ -13,9 +13,9 @@ function M.on_attach(_, bufnr)
 	remap("n", "<leader>cd", vim.diagnostic.open_float, "Line Diagnostics")
 	remap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code action")
 
-	remap("n", "gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
-	remap("n", "gr", require("telescope.builtin").lsp_references, "Goto References")
-	remap("n", "gI", require("telescope.builtin").lsp_implementations, "Goto Implementation")
+	remap("n", "gd", "<Cmd>Telescope lsp_definitions<Cr>", "Goto Definition")
+	remap("n", "gr", "<Cmd>Telescope lsp_references<Cr>", "Goto References")
+	remap("n", "gI", "<Cmd>Telescope lsp_implementations<Cr>", "Goto Implementation")
 
 	remap("n", "K", vim.lsp.buf.hover, "Hover Documentation")
 	remap("n", "<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")

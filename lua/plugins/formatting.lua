@@ -17,8 +17,11 @@ return {
 		-- Define your formatters
 		formatters_by_ft = {
 			lua = { "stylua" },
-			python = { "black" },
+			-- python = { "black" },
 			javascript = { "prettierd" },
+			typescript = { "prettierd" },
+			html = { "prettierd" },
+			json = { "prettierd" },
 		},
 	},
 	init = function()
