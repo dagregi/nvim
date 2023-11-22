@@ -9,7 +9,6 @@ function M.on_attach(_, bufnr)
 		vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc })
 	end
 	--lsp things
-	remap({ "n", "v" }, "<leader>cf", vim.lsp.buf.format, "Format document")
 	remap("n", "<leader>cr", vim.lsp.buf.rename, "Rename")
 	remap("n", "<leader>cd", vim.diagnostic.open_float, "Line Diagnostics")
 	remap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code action")
