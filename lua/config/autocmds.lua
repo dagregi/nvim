@@ -22,7 +22,7 @@ function M.setup()
 	})
 
 	-- highlight yanks
-	utils.augroup("TextYankPost", {
+	utils.augroup("HighlightYank", {
 		event = "TextYankPost",
 		command = function()
 			vim.highlight.on_yank({ timeout = 100 })
