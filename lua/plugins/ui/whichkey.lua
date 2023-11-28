@@ -9,21 +9,22 @@ return {
 				winblend = 35,
 			},
 			layout = {
-				spacing = 5,
+				spacing = 7,
 				align = "center",
 			},
 		})
 		require("which-key").register({
 			["<leader>"] = {
-				s = { name = "  " .. "search" },
-				t = { name = "  " .. "terminal" },
-				g = { name = "  " .. "git" },
-				gh = { name = "+ hunks" },
 				b = { name = "  " .. "buffers" },
-				l = { name = "  " .. "lsp" },
 				c = { name = "  " .. "code" },
 				f = { name = "  " .. "files/find" },
-				x = { name = "  " .. "trouble" },
+				g = { name = "  " .. "git" },
+				gh = { name = " hunks" },
+				gb = { name = " buffer" },
+				gt = { name = " toggles" },
+				h = { name = "  " .. "harpoon" },
+				s = { name = "  " .. "search" },
+				x = { name = "  " .. "trouble" },
 			},
 		})
 	end,
