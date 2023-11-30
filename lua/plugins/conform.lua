@@ -19,6 +19,8 @@ return {
 			c = { "clang-format" },
 			cpp = { "clang-format" },
 			lua = { "stylua" },
+			bash = { "shfmt" },
+			sh = { "shfmt" },
 			-- python = { "black" },
 			javascript = { "prettierd" },
 			typescript = { "prettierd" },

@@ -40,6 +40,7 @@ return {
 					".mypy_cache/",
 					"package-lock.json",
 					"yarn.lock",
+					"Cargo.lock",
 					"pnpm-lock.yaml",
 				},
 				path_display = {
@@ -53,8 +54,6 @@ return {
 			},
 			pickers = {
 				find_files = {
-					theme = "dropdown",
-					previewer = false,
 					hidden = true,
 				},
 				buffers = {

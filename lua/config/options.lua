@@ -9,7 +9,7 @@ o.wrap = false
 o.shiftwidth = 4
 o.tabstop = 4
 o.softtabstop = 4
-o.expandtab = true
+o.expandtab = false
 
 -- line
 o.number = true
