@@ -1,34 +1,6 @@
 return {
 	"nvim-tree/nvim-web-devicons",
 	{
-		"j-hui/fidget.nvim",
-		event = "BufReadPost",
-		opts = {
-			progress = {
-				poll_rate = 0.5,
-				ignore_done_already = true,
-				display = {
-					render_limit = 5,
-				},
-			},
-			notification = {
-				window = {
-					winblend = 0,
-				},
-			},
-		},
-	},
-	{
-		"christoomey/vim-tmux-navigator",
-		-- event = "BufReadPost",
-		keys = {
-			{ "<C-j>", "<Cmd>TmuxNavigateDown<Cr>" },
-			{ "<C-k>", "<Cmd>TmuxNavigateUp<Cr>" },
-			{ "<C-l>", "<Cmd>TmuxNavigateRight<Cr>" },
-			{ "<C-h>", "<Cmd>TmuxNavigateLeft<Cr>" },
-		},
-	},
-	{
 		"mbbill/undotree",
 		keys = {
 			{
