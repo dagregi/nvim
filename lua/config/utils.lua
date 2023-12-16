@@ -1,15 +1,11 @@
 local M = {}
-
 function M.remap(mode, keys, func, desc, opts)
 	opts = opts or { desc = "" }
-
 	if desc then
 		opts = { desc = opts.desc .. desc }
 	end
-
 	vim.keymap.set(mode, keys, func, opts)
 end
-
 function M.augroup(name, ...)
 	local commands = { ... }
 	assert(name ~= "User", "The name of an augroup CANNOT be User")
@@ -30,5 +26,4 @@ function M.augroup(name, ...)
 	end
 	return group_id
 end
-
 return M

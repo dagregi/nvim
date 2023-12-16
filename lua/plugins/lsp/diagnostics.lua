@@ -1,20 +1,16 @@
 local M = {}
-
 local fmt = string.format
-
 local icons = {
 	error = "󰅚 ",
 	warn = " ",
 	hint = "󰌶 ",
 	info = " ",
 }
-
 function M.setup()
 	for name, icon in pairs(icons) do
 		name = "DiagnosticSign" .. name:gsub("^%l", string.upper)
 		vim.fn.sign_define(name, { text = icon, texthl = name })
 	end
-
 	vim.diagnostic.config({
 		severity_sort = true,
 		virtual_text = {
@@ -45,7 +41,6 @@ function M.setup()
 			end,
 		},
 	})
-
 	require("config.utils").augroup("LspDiagnostics", {
 		event = "CursorHold",
 		desc = "LSP: show diagnostics",
@@ -54,5 +49,4 @@ function M.setup()
 		end,
 	})
 end
-
 return M

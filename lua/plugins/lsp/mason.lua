@@ -24,7 +24,6 @@ return {
 			},
 		},
 	},
-
 	config = function()
 		require("plugins.lsp.lsp-config").setup()
 		require("plugins.lsp.diagnostics").setup()

@@ -19,7 +19,6 @@ return {
 		-- search
 		{ "<leader>sd", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },
 	},
-
 	opts = function()
 		return {
 			defaults = {
@@ -65,7 +64,6 @@ return {
 			},
 		}
 	end,
-
 	config = function(_, opts)
 		local telescope = require("telescope")
 		telescope.setup(opts)

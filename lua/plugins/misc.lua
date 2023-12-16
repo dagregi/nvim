@@ -2,13 +2,7 @@ return {
 	"nvim-tree/nvim-web-devicons",
 	{
 		"mbbill/undotree",
-		keys = {
-			{
-				"<leader>cu",
-				vim.cmd.UndotreeToggle,
-				desc = "Undotree",
-			},
-		},
+		keys = { { "<leader>cu", vim.cmd.UndotreeToggle, desc = "Undotree" } },
 	},
 	{
 		"numToStr/Comment.nvim",
@@ -31,8 +25,5 @@ return {
 			})
 		end,
 	},
-	{
-		"RRethy/vim-illuminate",
-		event = "BufReadPost",
-	},
+	{ "RRethy/vim-illuminate", event = "BufReadPost" },
 }

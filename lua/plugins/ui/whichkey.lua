@@ -24,7 +24,6 @@ return {
 				gt = { name = " toggles" },
 				h = { name = "  " .. "harpoon" },
 				s = { name = "  " .. "search" },
-				-- x = { name = "  " .. "trouble" },
 			},
 		})
 	end,

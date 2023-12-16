@@ -1,7 +1,5 @@
 local M = {}
-
 local utils = require("config.utils")
-
 function M.setup()
 	-- goto last place
 	utils.augroup("LastPlaceLoc", {
@@ -20,7 +18,6 @@ function M.setup()
 			end
 		end,
 	})
-
 	-- highlight yanks
 	utils.augroup("HighlightYank", {
 		event = "TextYankPost",
@@ -28,7 +25,6 @@ function M.setup()
 			vim.highlight.on_yank({ timeout = 100 })
 		end,
 	})
-
 	-- vim-fugitive
 	utils.augroup("Fugitive", {
 		event = "BufWinEnter",
@@ -37,14 +33,11 @@ function M.setup()
 			if vim.bo.ft ~= "fugitive" then
 				return
 			end
-
 			local bufnr = vim.api.nvim_get_current_buf()
 			local opts = { buffer = bufnr, remap = false, desc = "Fugitive: " }
-
 			utils.remap("n", "<leader>p", "<Cmd>Git push<Cr>", "Push", opts)
 			utils.remap("n", "<leader>P", "<Cmd>Git pull --rebase<Cr>", "Pull", opts)
 		end,
 	})
 end
-
 return M

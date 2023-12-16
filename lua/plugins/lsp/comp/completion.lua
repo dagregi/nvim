@@ -43,7 +43,6 @@ return {
 								return vim_item
 							end
 						end
-
 						local kind =
 							require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
 						return kind
@@ -53,9 +52,7 @@ return {
 			},
 			search = {
 				mapping = cmp.mapping.preset.cmdline(),
-				sources = {
-					{ name = "buffer" },
-				},
+				sources = { { name = "buffer" } },
 			},
 			command = {
 				mapping = cmp.mapping.preset.cmdline(),
@@ -70,7 +67,6 @@ return {
 	config = function(_, opts)
 		local cmp = require("cmp")
 		cmp.setup(opts.defaults)
-
 		cmp.setup.cmdline({ "/", "?" }, opts.search)
 		cmp.setup.cmdline(":", opts.command)
 	end,
@@ -83,9 +79,6 @@ return {
 		"rafamadriz/friendly-snippets",
 		"saadparwaiz1/cmp_luasnip",
 		"L3MON4D3/LuaSnip",
-		{
-			"folke/neodev.nvim",
-			opts = {},
-		},
+		{ "folke/neodev.nvim", opts = {} },
 	},
 }

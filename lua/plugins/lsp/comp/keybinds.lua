@@ -1,7 +1,5 @@
 local M = {}
-
 M._keys = nil
-
 function M.setup()
 	local cmp, luasnip = require("cmp"), require("luasnip")
 	M._keys = M._keys
@@ -40,5 +38,4 @@ function M.setup()
 		}
 	return M._keys
 end
-
 return M

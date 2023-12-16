@@ -1,5 +1,4 @@
 local M = {}
-
 -- server configs
 M._servers = {
 	svelte = {},
@@ -27,14 +26,11 @@ M._servers = {
 		},
 	},
 }
-
 function M.setup()
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 	capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-
 	local mason_lspconfig = require("mason-lspconfig")
 	local lspconfig = require("lspconfig")
-
 	mason_lspconfig.setup({
 		-- ensure_installed = vim.tbl_keys(M._servers),
 	})
@@ -54,5 +50,4 @@ function M.setup()
 		lspconfig[server].setup(M._servers[server])
 	end
 end
-
 return M
