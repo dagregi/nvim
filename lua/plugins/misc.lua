@@ -1,6 +1,11 @@
 return {
 	"nvim-tree/nvim-web-devicons",
 	{
+		"j-hui/fidget.nvim",
+		event = "BufReadPre",
+		opts = {},
+	},
+	{
 		"mbbill/undotree",
 		keys = { { "<leader>cu", vim.cmd.UndotreeToggle, desc = "Undotree" } },
 	},

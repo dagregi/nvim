@@ -3,6 +3,7 @@ local M = {}
 M._servers = {
 	svelte = {},
 	clangd = {},
+	ocamllsp = {},
 	rust_analyzer = {
 		settings = {
 			["rust-analyzer"] = {

@@ -27,6 +27,7 @@ return {
 			html = { "rustywind", "prettier" },
 			go = { "gofumpt" },
 			rs = { "rustfmt" },
+			ml = { "ocamlformat" },
 		},
 	},
 	init = function()
