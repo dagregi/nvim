@@ -6,6 +6,11 @@ return {
 		opts = {},
 	},
 	{
+		"m4xshen/hardtime.nvim",
+		event = "BufReadPre",
+		opts = {},
+	},
+	{
 		"mbbill/undotree",
 		keys = { { "<leader>cu", vim.cmd.UndotreeToggle, desc = "Undotree" } },
 	},
