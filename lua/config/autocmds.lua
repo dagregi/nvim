@@ -39,5 +39,16 @@ function M.setup()
 			utils.remap("n", "<leader>P", "<Cmd>Git pull --rebase<Cr>", "Pull", opts)
 		end,
 	})
+	utils.augroup("CommitAutoInsert", {
+		event = "BufEnter",
+		pattern = "COMMIT_EDITMSG",
+		command = function()
+			vim.wo.spell = true
+			vim.api.nvim_win_set_cursor(0, { 1, 0 })
+			if vim.fn.getline(1) == "" then
+				vim.cmd("startinsert!")
+			end
+		end,
+	})
 end
 return M
