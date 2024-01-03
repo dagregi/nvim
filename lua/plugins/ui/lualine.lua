@@ -19,7 +19,10 @@ return {
 			options = {
 				theme = "auto",
 				globalstatus = true,
-				disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
+				showmode = false,
+				component_separators = "|",
+				section_separators = "",
+				disabled_filetypes = { statusline = { "dashboard", "lazy", "starter" } },
 			},
 			winbar = {
 				lualine_c = { file },
@@ -29,19 +32,10 @@ return {
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = {
-					{ "branch", icon = "" },
-				},
+				lualine_b = { { "branch", icon = "" } },
 				lualine_c = {
 					{ "diagnostics" },
-					{
-						"filetype",
-						icon_only = true,
-						separator = "",
-						padding = {
-							left = 1,
-						},
-					},
+					{ "filetype", icon_only = true, separator = "", padding = { left = 1 } },
 					file,
 				},
 				lualine_x = {},

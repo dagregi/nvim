@@ -30,6 +30,7 @@ opt.updatetime = 50
 vim.cmd([[let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro']])
 vim.api.nvim_set_hl(0, "netrwMarkFile", { link = "Search", default = true })
 vim.g.netrw_localcopydircmd = "cp -r"
+vim.g.netrw_localrmdir = "rm -r"
 vim.g.netrw_list_hide = [[\(^\|\s\s\)\zs\.\S\+]]
 vim.g.netrw_banner = 0
 vim.g.netrw_keepdir = 0

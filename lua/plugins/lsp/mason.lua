@@ -1,8 +1,8 @@
 return {
-	"williamboman/mason-lspconfig.nvim",
-	event = { "BufReadPost", "BufNewFile" },
+	"neovim/nvim-lspconfig",
+	event = "LazyFile",
 	dependencies = {
-		"neovim/nvim-lspconfig",
+		"williamboman/mason-lspconfig.nvim",
 		{
 			"ray-x/lsp_signature.nvim",
 			opts = {
@@ -15,14 +15,7 @@ return {
 			"williamboman/mason.nvim",
 			cmd = "Mason",
 			keys = { { "<leader>cm", "<Cmd>Mason<Cr>", desc = "Mason" } },
-			opts = {
-				ui = {
-					width = 0.75,
-					height = 0.8,
-					border = "rounded",
-					keymaps = { apply_language_filter = "f" },
-				},
-			},
+			opts = {},
 		},
 	},
 	config = function()

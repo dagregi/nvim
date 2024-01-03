@@ -1,7 +1,7 @@
 return {
 	"rose-pine/neovim",
 	name = "rose-pine",
-	event = "VimEnter",
+	event = "LazyFile",
 	opts = {
 		variant = "main",
 		bold_vert_split = false,

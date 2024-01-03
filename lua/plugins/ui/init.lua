@@ -1,4 +1,4 @@
-local M = {
+return {
 	require("plugins.ui.treesitter"),
 	require("plugins.ui.colorscheme"),
 	require("plugins.ui.indentline"),
@@ -6,4 +6,3 @@ local M = {
 	require("plugins.ui.whichkey"),
 	require("plugins.ui.lualine"),
 }
-return M

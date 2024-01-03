@@ -1,5 +1,5 @@
 local M = {}
--- server configs
+
 M._servers = {
 	ocamllsp = {},
 	gopls = {
