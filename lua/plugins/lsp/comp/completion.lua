@@ -1,17 +1,26 @@
 return {
 	"hrsh7th/nvim-cmp",
 	event = { "InsertEnter", "CmdlineEnter" },
+	dependencies = {
+		"hrsh7th/cmp-path",
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-cmdline",
+		"hrsh7th/cmp-nvim-lsp",
+		"onsails/lspkind.nvim",
+		"saadparwaiz1/cmp_luasnip",
+		{ "folke/neodev.nvim", opts = {} },
+	},
 	opts = function()
+		vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
 		local cmp, luasnip = require("cmp"), require("luasnip")
 		return {
 			defaults = {
 				window = {
-					completion = {
-						winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:Visual,Search:None",
-						col_offset = -3,
-						side_padding = 1,
-					},
 					documentation = cmp.config.window.bordered(),
+				},
+				completion = {
+					side_padding = 1,
+					completeopt = "menu,menuone,noinsert",
 				},
 				snippet = {
 					expand = function(args)
@@ -22,15 +31,7 @@ return {
 					{ name = "luasnip" },
 					{ name = "nvim_lsp" },
 					{ name = "path" },
-					{
-						name = "buffer",
-						option = {
-							get_bufnrs = function()
-								return vim.api.nvim_list_bufs()
-							end,
-						},
-						keyword_length = 2,
-					},
+					{ name = "buffer" },
 				}),
 				formatting = {
 					format = function(entry, vim_item)
@@ -47,6 +48,11 @@ return {
 							require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
 						return kind
 					end,
+				},
+				experimental = {
+					ghost_text = {
+						hl_group = "CmpGhostText",
+					},
 				},
 				mapping = require("plugins.lsp.comp.keybinds").setup(),
 			},
@@ -70,15 +76,4 @@ return {
 		cmp.setup.cmdline({ "/", "?" }, opts.search)
 		cmp.setup.cmdline(":", opts.command)
 	end,
-	dependencies = {
-		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-cmdline",
-		"hrsh7th/cmp-nvim-lsp",
-		"onsails/lspkind.nvim",
-		"rafamadriz/friendly-snippets",
-		"saadparwaiz1/cmp_luasnip",
-		"L3MON4D3/LuaSnip",
-		{ "folke/neodev.nvim", opts = {} },
-	},
 }
