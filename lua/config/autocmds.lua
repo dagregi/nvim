@@ -50,5 +50,18 @@ function M.setup()
 			end
 		end,
 	})
+	utils.augroup("NetrwMappings", {
+		event = "FileType",
+		pattern = "netrw",
+		command = function()
+			vim.api.nvim_buf_set_keymap(0, "n", "h", "-^", {})
+			vim.api.nvim_buf_set_keymap(0, "n", "l", "<CR>", {})
+			vim.api.nvim_buf_set_keymap(0, "n", ".", "gh", {})
+			vim.api.nvim_buf_set_keymap(0, "n", "P", "<C-w>z", {})
+			vim.api.nvim_buf_set_keymap(0, "n", "<TAB>", "mf", {})
+			vim.api.nvim_buf_set_keymap(0, "n", "<S-TAB>", "mF", {})
+			vim.api.nvim_buf_set_keymap(0, "n", "<Leader><TAB>", "mu", {})
+		end,
+	})
 end
 return M

@@ -17,6 +17,7 @@ vim.keymap.set("n", "<leader>bd", "<Cmd>bdelete!<CR>", { desc = "Delete current"
 vim.keymap.set("n", "]b", "<Cmd>bnext<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "[b", "<Cmd>bprevious<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>bD", "<Cmd>%bdelete<Bar>edit#<Bar>bdelete#<CR>", { desc = "Delete others" })
+vim.keymap.set("n", "<M-f>", "<Cmd>Ex<CR>", { desc = "Explorer" })
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
