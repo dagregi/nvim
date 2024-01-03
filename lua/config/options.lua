@@ -1,24 +1,22 @@
-local o, opt = vim.o, vim.opt
---leader key
+local opt = vim.opt
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
--- Indentation
-o.wrap = false
-o.shiftwidth = 4
-o.tabstop = 4
-o.softtabstop = 4
-o.expandtab = false
--- line
-o.number = true
-o.relativenumber = true
-o.cursorline = true
+opt.wrap = false
+opt.shiftwidth = 4
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.expandtab = false
+opt.smartindent = true
+opt.number = true
+opt.relativenumber = true
+opt.cursorline = true
 opt.guicursor = ""
--- display
 opt.scrolloff = 8
+opt.sidescrolloff = 8
 opt.signcolumn = "yes"
 opt.isfname:append("@-@")
 opt.colorcolumn = "80"
-o.termguicolors = true
+opt.termguicolors = true
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 opt.autowrite = true
 opt.swapfile = false

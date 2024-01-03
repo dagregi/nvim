@@ -22,8 +22,8 @@ return {
 		remap("n", "<leader>ghr", "<Cmd>Gitsigns reset_hunk<Cr>", "Reset hunk", hunk_opts)
 		-- select
 		remap("n", "<leader>ghv", "<Cmd>Gitsigns select_hunk<Cr>", "Select hunk", hunk_opts)
-		remap("n", "<leader>ghn", "<Cmd>Gitsigns next_hunk<Cr>", "Next hunk", hunk_opts)
-		remap("n", "<leader>ghp", "<Cmd>Gitsigns prev_hunk<Cr>", "Previous hunk", hunk_opts)
+		remap("n", "]h", "<Cmd>Gitsigns next_hunk<Cr>", "Next hunk", hunk_opts)
+		remap("n", "[h", "<Cmd>Gitsigns prev_hunk<Cr>", "Previous hunk", hunk_opts)
 		-- Buffer
 		remap("n", "<leader>gbs", "<Cmd>Gitsigns stage_buffer<Cr>", "Buffer: Stage buffer")
 		remap("n", "<leader>gbr", "<Cmd>Gitsigns reset_buffer<Cr>", "Buffer: Reset buffer")
