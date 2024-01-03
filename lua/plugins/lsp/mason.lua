@@ -14,6 +14,7 @@ return {
 		{
 			"williamboman/mason.nvim",
 			cmd = "Mason",
+			keys = { { "<leader>cm", "<Cmd>Mason<Cr>", desc = "Mason" } },
 			opts = {
 				ui = {
 					width = 0.75,
