@@ -22,7 +22,6 @@ return {
 			typescript = { "prettier" },
 			html = { "rustywind", "prettier" },
 			go = { "gofumpt" },
-			rust = { "rustfmt" },
 			ocaml = { "ocamlformat" },
 		},
 		formatters = {

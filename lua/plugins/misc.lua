@@ -14,7 +14,6 @@ return {
 		"mbbill/undotree",
 		keys = { { "<leader>cu", vim.cmd.UndotreeToggle, desc = "Undotree" } },
 	},
-	{ "j-hui/fidget.nvim", event = "BufReadPost" },
 	{
 		"numToStr/Comment.nvim",
 		event = "ModeChanged",
@@ -36,5 +35,4 @@ return {
 			})
 		end,
 	},
-	{ "RRethy/vim-illuminate", event = "BufReadPost" },
 }
