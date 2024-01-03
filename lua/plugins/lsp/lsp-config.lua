@@ -1,14 +1,48 @@
 local M = {}
 -- server configs
 M._servers = {
-	svelte = {},
-	clangd = {},
 	ocamllsp = {},
+	gopls = {
+		settings = {
+			gopls = {
+				gofumpt = true,
+				hints = {
+					assignVariableTypes = true,
+					compositeLiteralFields = true,
+					compositeLiteralTypes = true,
+					constantValues = true,
+					functionTypeParameters = true,
+					parameterNames = true,
+					rangeVariableTypes = true,
+				},
+				analyses = {
+					fieldalignment = true,
+					nilness = true,
+					unusedparams = true,
+					unusedwrite = true,
+					useany = true,
+				},
+				completeUnimported = true,
+				staticcheck = true,
+				directoryFilters = { "-.git", "-node_modules" },
+				semanticTokens = true,
+			},
+		},
+	},
 	rust_analyzer = {
 		settings = {
 			["rust-analyzer"] = {
 				check = {
 					command = "clippy",
+					extraArgs = { "--no-deps" },
+				},
+				procMacro = {
+					enable = true,
+					ignored = {
+						["async-trait"] = { "async_trait" },
+						["napi-derive"] = { "napi" },
+						["async-recursion"] = { "async_recursion" },
+					},
 				},
 			},
 		},
@@ -35,7 +69,6 @@ function M.setup()
 	mason_lspconfig.setup({
 		-- ensure_installed = vim.tbl_keys(M._servers),
 	})
-	-- TODO: look for a better way to write this code
 	mason_lspconfig.setup_handlers({
 		function(server_name)
 			lspconfig[server_name].setup({
@@ -46,7 +79,6 @@ function M.setup()
 			})
 		end,
 	})
-	-- TODO: look for a better way to write this code
 	for _, server in pairs(vim.tbl_keys(M._servers)) do
 		lspconfig[server].setup(M._servers[server])
 	end
