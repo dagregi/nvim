@@ -25,6 +25,7 @@ local modes = {
 	["!"] = "SHELL",
 	["t"] = "TERMINAL",
 }
+
 local function get_mode()
 	local current_mode = api.nvim_get_mode().mode
 	return string.format(" %s ", modes[current_mode]):upper()
@@ -32,11 +33,20 @@ end
 
 local function filetype()
 	local icon, hl_group = require("nvim-web-devicons").get_icon(vim.bo.ft)
-	return string.format("%%#%s# %s ", hl_group, icon)
+	local parts = {
+		string.format("%%#%s#", hl_group),
+		icon,
+		" %#Normal#",
+	}
+	return table.concat(parts)
 end
+
 local function filename()
 	local fname = fn.expand("%:~:.")
-	return string.format(" %s %%m", fname)
+	local parts = {
+		string.format(" %s %%m", fname),
+	}
+	return table.concat(parts)
 end
 
 local function lsp()
@@ -52,28 +62,26 @@ local function lsp()
 		count[k] = vim.tbl_count(vim.diagnostic.get(0, { severity = level }))
 	end
 
-	local errors = ""
-	local warnings = ""
-	local hints = ""
-	local info = ""
-
+	local parts = {}
 	if count["errors"] ~= 0 then
-		errors = " %#DiagnosticError#󰅚 " .. count["errors"]
+		table.insert(parts, " %#DiagnosticError#󰅚 " .. count["errors"])
 	end
 	if count["warnings"] ~= 0 then
-		warnings = " %#DiagnosticWarn# " .. count["warnings"]
+		table.insert(parts, " %#DiagnosticWarn# " .. count["warnings"])
 	end
 	if count["hints"] ~= 0 then
-		hints = " %#DiagnosticHint#󰌶 " .. count["hints"]
+		table.insert(parts, " %#DiagnosticHint#󰌶 " .. count["hints"])
 	end
 	if count["info"] ~= 0 then
-		info = " %#DiagnosticInfo# " .. count["info"]
+		table.insert(parts, " %#DiagnosticInfo# " .. count["info"])
 	end
 
-	return errors .. warnings .. hints .. info .. "%#Normal#"
+	table.insert(parts, "%#Normal#")
+
+	return table.concat(parts)
 end
 
-local vcs = function()
+local function vcs()
 	local git_info = vim.b.gitsigns_status_dict
 	if not git_info or git_info.head == "" then
 		return ""
@@ -90,15 +98,8 @@ local vcs = function()
 	if git_info.removed == 0 then
 		removed = ""
 	end
-	return table.concat({
-		"%#GitSignsAdd# ",
-		git_info.head,
-		" %#Normal#",
-		"| ",
-		added,
-		changed,
-		removed,
-	})
+	local parts = { "%#GitSignsAdd#  ", git_info.head, " %#Normal#", "| ", added, changed, removed }
+	return table.concat(parts)
 end
 
 local function lineinfo()
@@ -106,24 +107,31 @@ local function lineinfo()
 end
 
 M.statusline = function()
-	return table.concat({
-		"%#Statusline#",
-		get_mode(),
-		"%#Normal#",
-		vcs(),
+	local mode = get_mode()
+	local vcs_info = vcs()
+	local file_type = filetype()
+	local file_name = filename()
+	local lsp_info = lsp()
+	local line_info = lineinfo()
+	local parts = {
+		mode,
+		vcs_info,
 		"%=%#Normal#",
-		filetype(),
+		file_type,
 		"%#Normal#",
-		filename(),
+		file_name,
 		"%=%#StatusLineExtra#",
-		lsp(),
-		lineinfo(),
-	})
+		lsp_info,
+		line_info,
+	}
+
+	return table.concat(parts)
 end
 
 function M.setup()
+	vim.opt_local.laststatus = 0
 	Util.augroup("StatusLine", {
-		event = "BufEnter",
+		event = "BufRead",
 		command = function()
 			vim.opt.showmode = false
 			vim.opt_local.laststatus = 3
