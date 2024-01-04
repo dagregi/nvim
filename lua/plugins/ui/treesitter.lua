@@ -48,6 +48,8 @@ return {
 						["iv"] = { query = "@variable.inner", desc = "TS: inner variable" },
 						["af"] = { query = "@function.outer", desc = "TS: around function" },
 						["if"] = { query = "@function.inner", desc = "TS: inner function" },
+						["al"] = { query = "@loop.outer", desc = "TS: around loop" },
+						["il"] = { query = "@loop.inner", desc = "TS: inner loop" },
 						["aL"] = { query = "@assignment.lhs", desc = "TS: assignment lhs" },
 						["aR"] = { query = "@assignment.rhs", desc = "TS: assignment rhs" },
 					},

@@ -22,19 +22,10 @@ function M.setup()
 					fallback()
 				end
 			end, { "i", "s", "c" }),
-			["<CR>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { "i", "c" }),
+			["<C-l>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { "i", "c" }),
 			["<C-e>"] = { i = cmp.mapping.abort(), c = cmp.mapping.close() },
 			["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-8), { "i", "c" }),
 			["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(8), { "i", "c" }),
-			-- ["<C-c>"] = cmp.mapping.complete(),
-			["<Down>"] = cmp.mapping(
-				cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-				{ "i", "c" }
-			),
-			["<Up>"] = cmp.mapping(
-				cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-				{ "i", "c" }
-			),
 		}
 	return M._keys
 end

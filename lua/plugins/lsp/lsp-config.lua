@@ -6,6 +6,15 @@ M._servers = {
 		settings = {
 			gopls = {
 				gofumpt = true,
+				codelenses = {
+					gc_details = true,
+					generate = true,
+					regenerate_cgo = true,
+					test = true,
+					tidy = true,
+					upgrade_dependency = true,
+					vendor = true,
+				},
 				hints = {
 					assignVariableTypes = true,
 					compositeLiteralFields = true,
@@ -56,6 +65,7 @@ M._servers = {
 	},
 	lua_ls = {
 		Lua = {
+			diagnostics = { globals = { "vim" } },
 			workspace = { checkThirdParty = false },
 			telemetry = { enable = false },
 		},
