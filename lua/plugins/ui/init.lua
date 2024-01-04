@@ -4,5 +4,5 @@ return {
 	require("plugins.ui.indentline"),
 	require("plugins.ui.gitsigns"),
 	require("plugins.ui.whichkey"),
-	require("plugins.ui.lualine"),
+	require("plugins.ui.statusline").setup(),
 }
