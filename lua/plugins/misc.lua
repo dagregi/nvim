@@ -2,12 +2,12 @@ return {
 	"nvim-tree/nvim-web-devicons",
 	{
 		"j-hui/fidget.nvim",
-		event = "BufReadPre",
+		event = "LazyFile",
 		opts = {},
 	},
 	{
 		"m4xshen/hardtime.nvim",
-		event = "BufReadPre",
+		event = "LazyFile",
 		opts = {},
 	},
 	{

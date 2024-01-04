@@ -1,7 +1,7 @@
 return {
 	"rose-pine/neovim",
 	name = "rose-pine",
-	event = "LazyFile",
+	event = "UIEnter",
 	opts = {
 		variant = "main",
 		bold_vert_split = false,
