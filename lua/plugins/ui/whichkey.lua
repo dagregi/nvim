@@ -15,15 +15,13 @@ return {
 		})
 		require("which-key").register({
 			["<leader>"] = {
-				b = { name = "  " .. "buffers" },
-				c = { name = "  " .. "code" },
-				f = { name = "  " .. "files/find" },
-				g = { name = "  " .. "git" },
-				gh = { name = " hunks" },
-				gb = { name = " buffer" },
-				gt = { name = " toggles" },
-				h = { name = "  " .. "harpoon" },
-				s = { name = "  " .. "search" },
+				b = { name = "  buffers" },
+				c = { name = "  code" },
+				f = { name = "  files/find" },
+				g = { name = "  git" },
+				gs = { name = "gitsigns" },
+				h = { name = "  harpoon" },
+				s = { name = "  search" },
 			},
 		})
 	end,
