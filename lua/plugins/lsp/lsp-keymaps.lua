@@ -2,7 +2,7 @@ local M = {}
 function M.on_attach(_, bufnr)
 	local opts = { buffer = bufnr, desc = "LSP: " }
 	local remap = require("config.utils").remap
-	--lsp things
+
 	remap("n", "<leader>cr", vim.lsp.buf.rename, "Rename", opts)
 	remap("n", "<leader>cd", vim.diagnostic.open_float, "Line diagnostics", opts)
 	remap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code action", opts)
