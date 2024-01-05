@@ -1,6 +1,6 @@
 return {
 	"Exafunction/codeium.vim",
-	event = "VeryLazy",
+	event = "BufEnter",
 	config = function()
 		vim.g.codeium_manual = true
 		local remap = require("config.utils").remap
