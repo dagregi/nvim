@@ -26,6 +26,8 @@ opt.undofile = true
 opt.hlsearch = false
 opt.incsearch = true
 opt.updatetime = 50
+opt.laststatus = 3
+opt.showmode = false
 -- netrw
 vim.cmd([[let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro']])
 vim.api.nvim_set_hl(0, "netrwMarkFile", { link = "Search", default = true })

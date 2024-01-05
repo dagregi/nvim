@@ -1,26 +1,47 @@
 local api = vim.api
 local buf = vim.b
 
+---@type table<string, string>
+local modes = {
+	["n"] = "NORMAL",
+	["no"] = "NORMAL",
+	["v"] = "VISUAL",
+	["V"] = "V-LINE",
+	[""] = "V-BLOCK",
+	["s"] = "SELECT",
+	["S"] = "S-LINE",
+	[""] = "S-BLOCK",
+	["i"] = "INSERT",
+	["ic"] = "INSERT",
+	["R"] = "REPLACE",
+	["Rv"] = "V-REPLACE",
+	["c"] = "COMMAND",
+	["r"] = "PROMPT",
+}
+
+---@return string
+local function update_mode_colors()
+	local current_mode = vim.api.nvim_get_mode().mode
+	local mode_color = "%#ModesNormal# "
+	if current_mode == "n" or current_mode == "no" then
+		mode_color = "%#ModesNormal# "
+	elseif current_mode == "i" or current_mode == "ic" then
+		mode_color = "%#ModesInsert# "
+	elseif current_mode == "v" or current_mode == "V" or current_mode == "" then
+		mode_color = "%#ModesVisual# "
+	elseif current_mode == "R" or current_mode == "s" or current_mode == "S" or current_mode == "" then
+		mode_color = "%#ModesReplace# "
+	elseif current_mode == "c" or current_mode == "r" then
+		mode_color = "%#ModesCommand# "
+	end
+	return mode_color
+end
+
 ---@return string
 local function get_mode()
-	local mode = api.nvim_get_mode().mode
-	if mode == "i" then
-		return "INSERT"
-	elseif mode == "n" then
-		return "NORMAL"
-	elseif mode == "v" then
-		return "VISUAL"
-	elseif mode == "V" then
-		return "V-LINE"
-	elseif mode == "" then
-		return "V-BLOCK"
-	elseif mode == "R" then
-		return "REPLACE"
-	elseif mode == "c" then
-		return "COMMAND"
-	else
-		return mode
-	end
+	local current_mode = vim.api.nvim_get_mode().mode
+	local mode_color = update_mode_colors()
+	return table.concat({ mode_color, modes[current_mode], " %#Normal#" })
 end
 
 ---@return string | nil
@@ -44,8 +65,11 @@ local function get_file_name()
 	if file == "" then
 		return nil
 	end
+	if icon == nil then
+		icon = ""
+	end
 	local parts = {
-		string.format("%%#%s#", hl_group),
+		string.format("%%=%%#%s#", hl_group),
 		icon,
 		" %#Normal#",
 		file,
@@ -70,10 +94,10 @@ local function get_diagnostics()
 	end
 
 	local severities = {
-		ERROR = { match = "Error", count = 0 },
-		WARN = { match = "Warn", count = 0 },
-		HINT = { match = "Hint", count = 0 },
-		INFO = { match = "Info", count = 0 },
+		ERROR = { match = "Error", count = 0, icon = "󰅚 " },
+		WARN = { match = "Warn", count = 0, icon = " " },
+		HINT = { match = "Hint", count = 0, icon = "󰌶 " },
+		INFO = { match = "Info", count = 0, icon = " " },
 	}
 
 	for _, v in ipairs(diagnostics) do
@@ -93,6 +117,7 @@ local function get_diagnostics()
 					"%#DiagnosticVirtualText",
 					v.match,
 					"#",
+					v.icon,
 					v.count,
 					"%*",
 				})
@@ -113,8 +138,16 @@ end
 
 ---@return string
 local function get_progress()
-	local p = api.nvim_eval_statusline("%p %l:%c", {}).str
-	return p
+	local p = api.nvim_eval_statusline("%p", {}).str
+	local lc = api.nvim_eval_statusline("%l:%c", {}).str
+	if p == "0" or vim.fn.line(".") == 1 then
+		p = "TOP"
+	elseif p == "100" then
+		p = "BOTTOM"
+	else
+		p = ("%02d%s"):format(p, "%%")
+	end
+	return table.concat({ p, lc }, " ")
 end
 
 ---@param branch string | nil
@@ -132,7 +165,6 @@ local function generate_left(branch, file)
 	if file ~= "" then
 		table.insert(left, file)
 	end
-	left = { table.concat(left, " | ") }
 
 	local modified_flag = api.nvim_eval_statusline("%m", {}).str
 	if modified_flag ~= "" then
@@ -170,5 +202,4 @@ function Status_Line()
 	return table.concat({ "%<", left_string, divider, right_string })
 end
 
-vim.o.laststatus = 3
 vim.o.statusline = "%{%v:lua.Status_Line()%}"

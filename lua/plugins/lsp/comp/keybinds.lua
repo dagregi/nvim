@@ -22,7 +22,16 @@ function M.setup()
 					fallback()
 				end
 			end, { "i", "s", "c" }),
-			["<C-Tab>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { "i", "c" }),
+			["<C-l>"] = cmp.mapping(function(fallback)
+				if cmp.visible() then
+					if cmp.get_active_entry() then
+						return cmp.complete_common_string()
+					end
+					fallback()
+				end
+				fallback()
+			end, { "i", "c" }),
+			["<C-g>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { "i", "c" }),
 			["<C-e>"] = { i = cmp.mapping.abort(), c = cmp.mapping.close() },
 			["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-8), { "i", "c" }),
 			["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(8), { "i", "c" }),
