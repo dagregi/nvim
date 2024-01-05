@@ -1,9 +1,9 @@
 return {
-	"neovim/nvim-lspconfig",
+	"williamboman/mason-lspconfig.nvim",
 	event = "LazyFile",
 	dependencies = {
-		"williamboman/mason-lspconfig.nvim",
 		{
+			"neovim/nvim-lspconfig",
 			"ray-x/lsp_signature.nvim",
 			opts = {
 				bind = true,
