@@ -16,6 +16,7 @@ require("config.utils").lazy_file()
 require("lazy").setup({
 	spec = "plugins",
 	defaults = { lazy = true },
+	change_detection = { notify = false },
 	performance = {
 		rtp = {
 			disabled_plugins = {

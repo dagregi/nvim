@@ -16,6 +16,7 @@ return {
 				transparency = true,
 			},
 			highlight_groups = {
+				netrwDir = { fg = "foam" },
 				TelescopeBorder = { fg = "highlight_high", bg = "none" },
 				TelescopeNormal = { bg = "none" },
 				TelescopePromptNormal = { bg = "base" },

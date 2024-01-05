@@ -9,20 +9,15 @@ return {
 		{ "<leader>fr", "<Cmd>Telescope oldfiles<CR>", desc = "Recent files" },
 		{ "<leader>fp", "<Cmd>Telescope projects<CR>", desc = "Recent projects" },
 		{ "<leader>fc", "<Cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "Fuzzy search" },
-		{ "<leader>fb", "<Cmd>Telescope buffers<CR>", desc = "List buffers" },
 		{ "<leader>fd", "<Cmd>Telescope diagnostics<CR>", desc = "List diagnostics" },
 		{ "<leader>fR", "<Cmd>Telescope resume<CR>", desc = "Resume" },
 		-- git
 		{ "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "Commits" },
 		{ "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "Status" },
-		-- search
-		{ "<leader>sd", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },
 	},
 	opts = function()
 		return {
 			defaults = {
-				prompt_prefix = " ",
-				selection_caret = " ",
 				file_ignore_patterns = {
 					"%.jpg",
 					"%.jpeg",
@@ -36,10 +31,7 @@ return {
 					"^__pycache__/",
 					"^migrations/",
 					".mypy_cache/",
-					"package-lock.json",
-					"yarn.lock",
-					"Cargo.lock",
-					"pnpm-lock.yaml",
+					"%.lock",
 				},
 				path_display = {
 					truncate = 3,
@@ -53,12 +45,6 @@ return {
 			pickers = {
 				find_files = {
 					hidden = true,
-				},
-				buffers = {
-					theme = "dropdown",
-					previewer = false,
-					sort_mru = true,
-					sort_lastused = true,
 				},
 			},
 		}
