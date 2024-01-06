@@ -17,6 +17,8 @@ return {
 			},
 			highlight_groups = {
 				netrwDir = { fg = "foam" },
+				StatusLineDim = { fg = "inherit", bg = "highlight_high", blend = 30 },
+				StatusLineBranch = { fg = "rose", bg = "highlight_high", blend = 30 },
 				TelescopeBorder = { fg = "highlight_high", bg = "none" },
 				TelescopeNormal = { bg = "none" },
 				TelescopePromptNormal = { bg = "base" },

@@ -89,16 +89,9 @@ function M.lazy_file()
 	-- and the UI can continue rendering without blocking
 	load = vim.schedule_wrap(load)
 
-	-- M.augroup("lazy_file", {
-	-- 	event = M.lazy_file_events,
-	-- 	command = function(event)
-	-- 		table.insert(events, event)
-	-- 		load()
-	-- 	end,
-	-- })
-	vim.api.nvim_create_autocmd(M.lazy_file_events, {
-		group = vim.api.nvim_create_augroup("lazy_file", { clear = true }),
-		callback = function(event)
+	M.augroup("lazy_file", {
+		event = M.lazy_file_events,
+		command = function(event)
 			table.insert(events, event)
 			load()
 		end,

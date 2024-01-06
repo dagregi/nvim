@@ -49,13 +49,14 @@ local function get_branch_name()
 	if vim.g.launched_by_shell then
 		return nil
 	end
+	local icon = "%#StatusLineBranch#  "
 	local branch = vim.fn.system({ "git", "branch", "--show-current" })
 	if branch == "" or vim.v.shell_error ~= 0 then
 		return nil
 	end
 
 	local branch_name, _ = branch:gsub("\n", "")
-	return branch_name
+	return table.concat({ icon, branch_name, " %#Normal#" })
 end
 
 ---@return string | nil
@@ -68,12 +69,7 @@ local function get_file_name()
 	if icon == nil then
 		icon = ""
 	end
-	local parts = {
-		string.format("%%=%%#%s#", hl_group),
-		icon,
-		" %#Normal#",
-		file,
-	}
+	local parts = { "%<", string.format("%%=%%#%s#", hl_group), icon, " %#Normal#", file }
 	return table.concat(parts)
 end
 
@@ -139,15 +135,15 @@ end
 ---@return string
 local function get_progress()
 	local p = api.nvim_eval_statusline("%p", {}).str
-	local lc = api.nvim_eval_statusline("%l:%c", {}).str
+	local lc = api.nvim_eval_statusline("%l:%c ", {}).str
 	if p == "0" or vim.fn.line(".") == 1 then
-		p = "TOP"
+		p = " TOP "
 	elseif p == "100" then
-		p = "BOTTOM"
+		p = " BOT "
 	else
-		p = ("%02d%s"):format(p, "%%")
+		p = (" %d%s "):format(p, "%%")
 	end
-	return table.concat({ p, lc }, " ")
+	return table.concat({ "%#StatusLineDim#", p, update_mode_colors(), lc })
 end
 
 ---@param branch string | nil
@@ -171,7 +167,7 @@ local function generate_left(branch, file)
 		table.insert(left, modified_flag)
 	end
 
-	return table.concat(left, " ")
+	return table.concat(left)
 end
 
 ---@return string
@@ -179,7 +175,6 @@ local function generate_right()
 	local right = {}
 	table.insert(right, get_diagnostics())
 	table.insert(right, get_progress())
-	right = { table.concat(right, " | ") }
 
 	return table.concat(right, " ")
 end
@@ -199,7 +194,7 @@ function Status_Line()
 		divider = "%="
 	end
 
-	return table.concat({ "%<", left_string, divider, right_string })
+	return table.concat({ left_string, divider, right_string })
 end
 
 vim.o.statusline = "%{%v:lua.Status_Line()%}"

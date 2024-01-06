@@ -56,13 +56,7 @@ M._servers = {
 			},
 		},
 	},
-	tsserver = {
-		settings = {
-			completions = {
-				completeFunctionCalls = true,
-			},
-		},
-	},
+	tsserver = { settings = { completions = { completeFunctionCalls = true } } },
 	lua_ls = {
 		Lua = {
 			diagnostics = { globals = { "vim" } },
