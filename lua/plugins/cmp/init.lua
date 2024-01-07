@@ -31,6 +31,7 @@ return {
 					sources = cmp.config.sources({
 						{ name = "luasnip" },
 						{ name = "nvim_lsp" },
+						{ name = "codeium" },
 						{ name = "path" },
 						{ name = "buffer" },
 					}),
@@ -50,8 +51,8 @@ return {
 					mapping = cmp.mapping.preset.cmdline(),
 					sources = cmp.config.sources({
 						{ name = "path" },
-						}, {
-							{ name = "cmdline" },
+					}, {
+						{ name = "cmdline" },
 					}),
 				},
 			}
