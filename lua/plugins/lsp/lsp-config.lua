@@ -73,6 +73,9 @@ function M.setup()
 	mason_lspconfig.setup({
 		-- ensure_installed = vim.tbl_keys(M._servers),
 	})
+	for _, server in pairs(vim.tbl_keys(M._servers)) do
+		lspconfig[server].setup(M._servers[server])
+	end
 	mason_lspconfig.setup_handlers({
 		function(server_name)
 			lspconfig[server_name].setup({
@@ -83,8 +86,5 @@ function M.setup()
 			})
 		end,
 	})
-	for _, server in pairs(vim.tbl_keys(M._servers)) do
-		lspconfig[server].setup(M._servers[server])
-	end
 end
 return M
