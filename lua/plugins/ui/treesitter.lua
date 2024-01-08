@@ -44,8 +44,6 @@ return {
 						["ic"] = { query = "@conditional.inner", desc = "TS: inner conditional" },
 						["aa"] = { query = "@parameter.outer", desc = "TS: around parameter" },
 						["ia"] = { query = "@parameter.inner", desc = "TS: inner parameter" },
-						["av"] = { query = "@variable.outer", desc = "TS: around variable" },
-						["iv"] = { query = "@variable.inner", desc = "TS: inner variable" },
 						["af"] = { query = "@function.outer", desc = "TS: around function" },
 						["if"] = { query = "@function.inner", desc = "TS: inner function" },
 						["al"] = { query = "@loop.outer", desc = "TS: around loop" },

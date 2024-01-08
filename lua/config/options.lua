@@ -25,7 +25,8 @@ opt.undodir = os.getenv("XDG_CACHE_HOME") .. "/nvim/undodir"
 opt.undofile = true
 opt.hlsearch = false
 opt.incsearch = true
-opt.updatetime = 50
+opt.smartcase = true
+opt.updatetime = 300
 opt.laststatus = 3
 opt.showmode = false
 -- netrw

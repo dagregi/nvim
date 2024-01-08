@@ -18,9 +18,11 @@ require("lazy").setup({
 	defaults = { lazy = true },
 	change_detection = { notify = false },
 	performance = {
+		cache = true,
 		rtp = {
 			disabled_plugins = {
 				"gzip",
+				"rplugin",
 				"matchit",
 				"matchparen",
 				-- "netrwPlugin",

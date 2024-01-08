@@ -2,14 +2,12 @@ return {
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
-		branch = "canary",
-		event = "VeryLazy",
+		lazy = false,
 		priority = 1000,
 		opts = {
 			variant = "main",
 			bold_ver_split = true,
 			dim_inactive_windows = true,
-			extend_background_behind_borders = true,
 			styles = {
 				bold = true,
 				italic = false,
@@ -17,8 +15,7 @@ return {
 			},
 			highlight_groups = {
 				netrwDir = { fg = "foam" },
-				StatusLineDim = { fg = "inherit", bg = "highlight_high", blend = 30 },
-				StatusLineBranch = { fg = "rose", bg = "highlight_high", blend = 30 },
+				StatusLineSecondary = { fg = "rose", bg = "highlight_high", blend = 30 },
 				TelescopeBorder = { fg = "highlight_high", bg = "none" },
 				TelescopeNormal = { bg = "none" },
 				TelescopePromptNormal = { bg = "base" },

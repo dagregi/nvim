@@ -14,11 +14,7 @@ return {
 		"mbbill/undotree",
 		keys = { { "<leader>cu", vim.cmd.UndotreeToggle, desc = "Undotree" } },
 	},
-	{
-		"numToStr/Comment.nvim",
-		event = "VeryLazy",
-		opts = {},
-	},
+	{ "echasnovski/mini.comment", version = false, event = "VeryLazy", opts = {} },
 	{
 		"ahmedkhalf/project.nvim",
 		config = function()

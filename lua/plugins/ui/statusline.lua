@@ -49,7 +49,7 @@ local function get_branch_name()
 	if vim.g.launched_by_shell then
 		return nil
 	end
-	local icon = "%#StatusLineBranch#  "
+	local icon = "%#StatusLineSecondary#  "
 	local branch = vim.fn.system({ "git", "branch", "--show-current" })
 	if branch == "" or vim.v.shell_error ~= 0 then
 		return nil
@@ -143,7 +143,7 @@ local function get_progress()
 	else
 		p = (" %d%s "):format(p, "%%")
 	end
-	return table.concat({ "%#StatusLineDim#", p, update_mode_colors(), lc })
+	return table.concat({ "%#StatusLineSecondary#", p, update_mode_colors(), lc })
 end
 
 ---@param branch string | nil

@@ -1,7 +1,7 @@
 local M = {}
 
 M._servers = {
-	ocamllsp = {},
+	-- ocamllsp = {},
 	gopls = {
 		settings = {
 			gopls = {
@@ -56,7 +56,7 @@ M._servers = {
 			},
 		},
 	},
-	tsserver = { settings = { completions = { completeFunctionCalls = true } } },
+	-- tsserver = { settings = { completions = { completeFunctionCalls = true } } },
 	lua_ls = {
 		Lua = {
 			diagnostics = { globals = { "vim" } },
@@ -71,11 +71,8 @@ function M.setup()
 	local mason_lspconfig = require("mason-lspconfig")
 	local lspconfig = require("lspconfig")
 	mason_lspconfig.setup({
-		-- ensure_installed = vim.tbl_keys(M._servers),
+		ensure_installed = vim.tbl_keys(M._servers),
 	})
-	for _, server in pairs(vim.tbl_keys(M._servers)) do
-		lspconfig[server].setup(M._servers[server])
-	end
 	mason_lspconfig.setup_handlers({
 		function(server_name)
 			lspconfig[server_name].setup({

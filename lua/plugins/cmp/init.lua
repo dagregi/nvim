@@ -9,8 +9,7 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			"onsails/lspkind.nvim",
 			"saadparwaiz1/cmp_luasnip",
-			{ "folke/neodev.nvim", opts = {} },
-			{ "Exafunction/codeium.nvim", event = "VeryLazy", opts = {} },
+			{ "Exafunction/codeium.nvim", opts = {} },
 		},
 		opts = function()
 			vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
