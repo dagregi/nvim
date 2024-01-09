@@ -16,12 +16,13 @@ return {
 			local cmp, luasnip = require("cmp"), require("luasnip")
 			return {
 				defaults = {
+					completion = { completeopt = "menu,menuone,noinsert" },
 					window = {
 						documentation = cmp.config.window.bordered(),
-					},
-					completion = {
-						side_padding = 1,
-						completeopt = "menu,menuone,noinsert",
+						completion = {
+							scrollbar = false,
+							side_padding = 1,
+						},
 					},
 					snippet = {
 						expand = function(args)
@@ -35,7 +36,10 @@ return {
 						{ name = "path" },
 						{ name = "buffer" },
 					}),
-					formatting = require("plugins.cmp.formatting"),
+					formatting = {
+						fields = { "abbr", "kind" },
+						format = require("plugins.cmp.formatting").format,
+					},
 					experimental = {
 						ghost_text = {
 							hl_group = "CmpGhostText",
