@@ -79,7 +79,6 @@ function M.setup()
 				capabilities = capabilities,
 				on_attach = require("plugins.lsp.lsp-keymaps").on_attach(),
 				settings = M._servers[server_name],
-				filetypes = (M._servers[server_name] or {}).filetypes,
 			})
 		end,
 	})

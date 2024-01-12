@@ -13,6 +13,7 @@ return {
 				"haskell",
 				"ocaml",
 				"go",
+				"lua",
 				"javascript",
 				"json",
 				"markdown",
