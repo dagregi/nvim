@@ -4,11 +4,7 @@ return {
 		event = "LazyFile",
 		main = "ibl",
 		config = function()
-			require("ibl").setup({
-				indent = {
-					char = "▏",
-				},
-			})
+			require("ibl").setup({})
 		end,
 	},
 }

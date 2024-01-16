@@ -58,10 +58,12 @@ M._servers = {
 	},
 	-- tsserver = { settings = { completions = { completeFunctionCalls = true } } },
 	lua_ls = {
-		Lua = {
-			diagnostics = { globals = { "vim" } },
-			workspace = { checkThirdParty = false },
-			telemetry = { enable = false },
+		settings = {
+			Lua = {
+				diagnostics = { globals = { "vim" } },
+				workspace = { checkThirdParty = false },
+				telemetry = { enable = false },
+			},
 		},
 	},
 }
@@ -78,9 +80,11 @@ function M.setup()
 			lspconfig[server_name].setup({
 				capabilities = capabilities,
 				on_attach = require("plugins.lsp.lsp-keymaps").on_attach(),
-				settings = M._servers[server_name],
 			})
 		end,
 	})
+	for _, server in pairs(vim.tbl_keys(M._servers)) do
+		lspconfig[server].setup(M._servers[server])
+	end
 end
 return M
