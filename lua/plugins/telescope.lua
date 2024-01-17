@@ -47,18 +47,32 @@ return {
 					hidden = true,
 				},
 			},
+			extensions = {
+				fzf = {
+					fuzzy = true,
+					override_generic_sorter = true,
+					override_file_sorter = true,
+					case_mode = "smart_case",
+				},
+			},
 		}
 	end,
 	config = function(_, opts)
 		local telescope = require("telescope")
 		telescope.setup(opts)
-		telescope.load_extension("fzf")
-		telescope.load_extension("projects")
 	end,
 	dependencies = {
 		"BurntSushi/ripgrep",
 		"nvim-lua/plenary.nvim",
 		"ahmedkhalf/project.nvim",
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{
+			"nvim-telescope/telescope-fzf-native.nvim",
+			build = "make",
+			config = function()
+				require("config.utils").on_load("telescope.nvim", function()
+					require("telescope").load_extension("fzf")
+				end)
+			end,
+		},
 	},
 }

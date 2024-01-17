@@ -14,7 +14,15 @@ return {
 		"mbbill/undotree",
 		keys = { { "<leader>cu", vim.cmd.UndotreeToggle, desc = "Undotree" } },
 	},
-	{ "echasnovski/mini.comment", version = false, event = "VeryLazy", opts = {} },
+	{
+		"echasnovski/mini.comment",
+		version = false,
+		keys = {
+			{ "gc", mode = { "n", "v" } },
+			{ "gb", mode = { "n", "v" } },
+		},
+		opts = {},
+	},
 	{
 		"ahmedkhalf/project.nvim",
 		config = function()
@@ -23,6 +31,9 @@ return {
 				patterns = { ".git", "pyproject.toml", "go.mod", "Makefile" },
 				show_hidden = true,
 			})
+			require("config.utils").on_load("telescope.nvim", function()
+				require("telescope").load_extension("projects")
+			end)
 		end,
 	},
 }
