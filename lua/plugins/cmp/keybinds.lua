@@ -6,7 +6,7 @@ function M.setup()
 		or {
 			["<C-n>"] = cmp.mapping.select_next_item(),
 			["<C-p>"] = cmp.mapping.select_prev_item(),
-			["<C-g>"] = cmp.mapping.confirm({ select = false }),
+			["<C-g>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { "i", "c" }),
 			["<C-e>"] = cmp.mapping.abort(),
 			["<C-u>"] = cmp.mapping.scroll_docs(-8),
 			["<C-d>"] = cmp.mapping.scroll_docs(8),
