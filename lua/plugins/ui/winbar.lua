@@ -1,3 +1,5 @@
+local M = {}
+
 function Harpoon_Files()
 	local harpoon = require("harpoon")
 	vim.api.nvim_set_hl(0, "HarpoonInactive", { fg = "#6e6a86" })
@@ -21,4 +23,8 @@ function Harpoon_Files()
 	return table.concat(contents)
 end
 
-vim.o.winbar = "%{%v:lua.Harpoon_Files()%}%#Normal#%=%f "
+function M.setup()
+	vim.o.winbar = "%{%v:lua.Harpoon_Files()%}%#Normal#%=%f "
+end
+
+return M
