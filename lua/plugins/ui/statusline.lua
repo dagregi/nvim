@@ -1,6 +1,5 @@
 local M = {}
 
-local on_load = require("config.utils").on_load
 local api = vim.api
 local buf = vim.b
 
@@ -64,9 +63,7 @@ end
 
 ---@return string | nil
 local function get_file_name()
-	local icon, hl_group = on_load("nvim-web-devicons.nvim", function()
-		require("nvim-web-devicons").get_icon(vim.fn.expand("%:t"))
-	end)
+	local icon, hl_group = require("nvim-web-devicons").get_icon(vim.fn.expand("%:t"))
 	local file = vim.fn.expand("%:~:.")
 	if file == "" then
 		return nil

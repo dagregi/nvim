@@ -11,9 +11,8 @@ return {
 		{ "<leader>fc", "<Cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "Fuzzy search" },
 		{ "<leader>fd", "<Cmd>Telescope diagnostics<CR>", desc = "List diagnostics" },
 		{ "<leader>fR", "<Cmd>Telescope resume<CR>", desc = "Resume" },
-		-- git
 		{ "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "Commits" },
-		{ "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "Status" },
+		{ "<leader>gt", "<cmd>Telescope git_status<CR>", desc = "Status" },
 	},
 	opts = function()
 		return {
