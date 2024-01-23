@@ -2,7 +2,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		event = { "LazyFile", "VeryLazy" },
+		event =  "VeryLazy",
 		dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
 		opts = {
 			ensure_installed = {
@@ -52,11 +52,6 @@ return {
 						["aL"] = { query = "@assignment.lhs", desc = "TS: assignment lhs" },
 						["aR"] = { query = "@assignment.rhs", desc = "TS: assignment rhs" },
 					},
-				},
-				swap = {
-					enable = true,
-					swap_next = swap_next,
-					swap_previous = swap_prev,
 				},
 			},
 		},

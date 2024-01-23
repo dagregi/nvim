@@ -22,9 +22,8 @@ function M.format(entry, vim_item)
 
 	local kind = require("lspkind").cmp_format({
 		mode = "symbol_text",
-		-- maxwidth = half_win_width,
+		maxwidth = half_win_width,
 		ellipsis_char = "…",
-		symbol_map = { Codeium = "󰘦 " },
 	})(entry, vim_item)
 	return kind
 end

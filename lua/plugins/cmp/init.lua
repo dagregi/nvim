@@ -9,7 +9,7 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			"onsails/lspkind.nvim",
 			"saadparwaiz1/cmp_luasnip",
-			{ "Exafunction/codeium.nvim", opts = {} },
+			"L3MON4D3/LuaSnip",
 		},
 		opts = function()
 			vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
@@ -32,7 +32,6 @@ return {
 					sources = cmp.config.sources({
 						{ name = "luasnip" },
 						{ name = "nvim_lsp" },
-						{ name = "codeium" },
 						{ name = "path" },
 						{ name = "buffer" },
 					}),

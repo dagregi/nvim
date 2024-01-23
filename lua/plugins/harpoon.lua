@@ -1,6 +1,5 @@
 return {
 	"ThePrimeagen/harpoon",
-	event = "BufReadPre",
 	branch = "harpoon2",
 	config = function()
 		local harpoon = require("harpoon")

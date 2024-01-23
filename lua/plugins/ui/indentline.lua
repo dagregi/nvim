@@ -1,7 +1,7 @@
 return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		event = "LazyFile",
+		event = "VeryLazy",
 		main = "ibl",
 		config = function()
 			require("ibl").setup({})

@@ -2,7 +2,7 @@ return {
 	"nvim-tree/nvim-web-devicons",
 	{
 		"j-hui/fidget.nvim",
-		event = "LazyFile",
+		event = "BufReadPost",
 		opts = {},
 	},
 	{

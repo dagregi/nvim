@@ -73,7 +73,7 @@ function M.setup()
 	local mason_lspconfig = require("mason-lspconfig")
 	local lspconfig = require("lspconfig")
 	mason_lspconfig.setup({
-		ensure_installed = vim.tbl_keys(M._servers),
+		-- ensure_installed = vim.tbl_keys(M._servers),
 	})
 	mason_lspconfig.setup_handlers({
 		function(server_name)
