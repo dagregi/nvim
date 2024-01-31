@@ -14,8 +14,10 @@ local modes = {
 	["S"] = "S-LINE",
 	[""] = "S-BLOCK",
 	["i"] = "INSERT",
+	["niI"] = "O-INSERT",
 	["ic"] = "INSERT",
 	["R"] = "REPLACE",
+	["niR"] = "O-REPLACE",
 	["Rv"] = "V-REPLACE",
 	["c"] = "COMMAND",
 	["r"] = "PROMPT",
@@ -27,11 +29,11 @@ local function update_mode_colors()
 	local mode_color = "%#ModesNormal# "
 	if current_mode == "n" or current_mode == "no" then
 		mode_color = "%#ModesNormal# "
-	elseif current_mode == "i" or current_mode == "ic" then
+	elseif current_mode == "i" or current_mode == "ic" or current_mode == "niI" then
 		mode_color = "%#ModesInsert# "
 	elseif current_mode == "v" or current_mode == "V" or current_mode == "" then
 		mode_color = "%#ModesVisual# "
-	elseif current_mode == "R" or current_mode == "s" or current_mode == "S" or current_mode == "" then
+	elseif current_mode == "R" or current_mode == "s" or current_mode == "S" or current_mode == "" or current_mode == "niR" then
 		mode_color = "%#ModesReplace# "
 	elseif current_mode == "c" or current_mode == "r" then
 		mode_color = "%#ModesCommand# "
