@@ -65,6 +65,10 @@ end
 
 ---@return string | nil
 local function get_file_name()
+	if not pcall(require, "nvim-web-devicons") then
+		return nil
+	end
+
 	local icon, hl_group = require("nvim-web-devicons").get_icon(vim.fn.expand("%:t"))
 	local file = vim.fn.expand("%:~:.")
 	if file == "" then

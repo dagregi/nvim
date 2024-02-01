@@ -1,6 +1,11 @@
 local M = {}
 
+---@return string
 function Harpoon_Files()
+	if not pcall(require, "harpoon") then
+		return ""
+	end
+
 	local harpoon = require("harpoon")
 	vim.api.nvim_set_hl(0, "HarpoonInactive", { fg = "#6e6a86" })
 	vim.api.nvim_set_hl(0, "HarpoonActive", { fg = "#9ccfd8" })
