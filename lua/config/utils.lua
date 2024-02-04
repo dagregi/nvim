@@ -1,4 +1,5 @@
 local M = {}
+
 function M.remap(mode, keys, func, desc, opts)
 	opts = opts or { desc = "" }
 	if desc then
@@ -6,6 +7,7 @@ function M.remap(mode, keys, func, desc, opts)
 	end
 	vim.keymap.set(mode, keys, func, opts)
 end
+
 function M.augroup(name, ...)
 	local commands = { ... }
 	assert(name ~= "User", "The name of an augroup CANNOT be User")
@@ -28,20 +30,20 @@ function M.augroup(name, ...)
 end
 
 function M.on_load(name, fn)
-  local Config = require("lazy.core.config")
-  if Config.plugins[name] and Config.plugins[name]._.loaded then
-    fn(name)
-  else
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "LazyLoad",
-      callback = function(args)
-        if args.data == name then
-          fn(name)
-          return true
-        end
-      end,
-    })
-  end
+	local Config = require("lazy.core.config")
+	if Config.plugins[name] and Config.plugins[name]._.loaded then
+		fn(name)
+	else
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "LazyLoad",
+			callback = function(args)
+				if args.data == name then
+					fn(name)
+					return true
+				end
+			end,
+		})
+	end
 end
 
 return M

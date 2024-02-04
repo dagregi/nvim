@@ -1,4 +1,5 @@
 local M = {}
+
 local utils = require("config.utils")
 function M.setup()
 	-- goto last place
@@ -64,4 +65,5 @@ function M.setup()
 		end,
 	})
 end
+
 return M
