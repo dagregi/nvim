@@ -36,8 +36,8 @@ function M.setup()
 			end
 			local bufnr = vim.api.nvim_get_current_buf()
 			local opts = { buffer = bufnr, remap = false, desc = "Fugitive: " }
-			utils.remap("n", "<leader>p", "<Cmd>Git push<Cr>", "Push", opts)
-			utils.remap("n", "<leader>P", "<Cmd>Git pull --rebase<Cr>", "Pull", opts)
+			utils.remap("n", "<leader>gp", "<Cmd>Git push<Cr>", "Push", opts)
+			utils.remap("n", "<leader>gP", "<Cmd>Git pull --rebase<Cr>", "Pull", opts)
 		end,
 	})
 	utils.augroup("CommitAutoInsert", {
