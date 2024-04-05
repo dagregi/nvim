@@ -21,6 +21,7 @@ return {
 			-- python = { "black" },
 			javascript = { "prettier" },
 			typescript = { "prettier" },
+			css = { "prettier" },
 			html = { "rustywind", "prettier" },
 			go = { "gofumpt" },
 			ocaml = { "ocamlformat" },

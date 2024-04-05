@@ -56,7 +56,7 @@ M._servers = {
 			},
 		},
 	},
-	-- tsserver = { settings = { completions = { completeFunctionCalls = true } } },
+	tsserver = { settings = { completions = { completeFunctionCalls = true } } },
 	lua_ls = {
 		settings = {
 			Lua = {
