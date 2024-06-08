@@ -13,18 +13,14 @@ return {
 	},
 	opts = {
 		formatters_by_ft = {
-			c = { "clang-format" },
-			cpp = { "clang-format" },
 			lua = { "stylua" },
 			bash = { "shfmt" },
 			sh = { "shfmt" },
-			-- python = { "black" },
 			javascript = { "prettier" },
 			typescript = { "prettier" },
 			css = { "prettier" },
-			html = { "rustywind", "prettier" },
+			html = { "prettier" },
 			go = { "gofumpt" },
-			ocaml = { "ocamlformat" },
 		},
 		formatters = {
 			prettier = {
