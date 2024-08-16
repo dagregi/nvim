@@ -1,7 +1,6 @@
 return {
 	{
 		"hrsh7th/nvim-cmp",
-		event = { "InsertEnter", "CmdlineEnter" },
 		dependencies = {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-buffer",
@@ -30,8 +29,8 @@ return {
 						end,
 					},
 					sources = cmp.config.sources({
-						{ name = "luasnip" },
 						{ name = "nvim_lsp" },
+						{ name = "luasnip" },
 						{ name = "path" },
 						{ name = "buffer" },
 					}),

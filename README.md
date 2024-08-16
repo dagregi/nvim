@@ -1,3 +1,3 @@
 # neovim-config
 
-README propaganda?!
+My neovim config tailored to my liking.

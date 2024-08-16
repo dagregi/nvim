@@ -16,6 +16,8 @@ return {
 			lua = { "stylua" },
 			bash = { "shfmt" },
 			sh = { "shfmt" },
+			python = { "black" },
+			ocaml = { "ocamlformat" },
 			javascript = { "prettier" },
 			typescript = { "prettier" },
 			css = { "prettier" },
