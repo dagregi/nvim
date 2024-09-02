@@ -19,6 +19,7 @@ return {
 			python = { "black" },
 			ocaml = { "ocamlformat" },
 			javascript = { "prettier" },
+			markdown = { "prettier" },
 			typescript = { "prettier" },
 			css = { "prettier" },
 			html = { "prettier" },

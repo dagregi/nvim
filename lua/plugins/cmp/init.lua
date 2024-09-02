@@ -13,6 +13,7 @@ return {
 		opts = function()
 			vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
 			local cmp, luasnip = require("cmp"), require("luasnip")
+
 			return {
 				defaults = {
 					completion = { completeopt = "menu,menuone,noinsert" },
