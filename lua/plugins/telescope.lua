@@ -70,6 +70,7 @@ return {
 			config = function()
 				require("config.utils").on_load("telescope.nvim", function()
 					require("telescope").load_extension("fzf")
+					require("telescope").load_extension("git_worktree")
 				end)
 			end,
 		},

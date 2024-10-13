@@ -4,6 +4,17 @@ return {
 		keys = { { "<leader>gf", "<Cmd>Git<Cr>", desc = "Fugitive" } },
 	},
 	{
+		"polarmutex/git-worktree.nvim",
+		version = "^2",
+		event = "VeryLazy",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			local remap = require("config.utils").remap
+			remap("n", "<leader>gww", "<Cmd>Telescope git_worktree<Cr>", "Git Worktree")
+			remap("n", "<leader>gwi", [[:lua require("git-worktree").create_worktree("]], "Git Worktree")
+		end,
+	},
+	{
 		"lewis6991/gitsigns.nvim",
 		event = "VeryLazy",
 		opts = {

@@ -12,5 +12,6 @@ return {
 		remap("n", "<C-t>", function() harpoon:list():select(2) end)
 		remap("n", "<C-n>", function() harpoon:list():select(3) end)
 		remap("n", "<C-s>", function() harpoon:list():select(4) end)
+		remap("n", "<C-\\>", function() harpoon:list():select(5) end)
 	end,
 }
