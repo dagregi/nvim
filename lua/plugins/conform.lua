@@ -21,6 +21,7 @@ return {
 			javascript = { "prettier" },
 			markdown = { "prettier" },
 			typescript = { "prettier" },
+			vue = { "prettier" },
 			css = { "prettier" },
 			html = { "prettier" },
 			go = { "gofumpt" },
