@@ -14,7 +14,7 @@ require("config.keymaps")
 require("config.autocmds").setup()
 require("lazy").setup({
 	spec = "plugins",
-	defaults = { lazy = true },
+	defaults = { lazy = false },
 	change_detection = { notify = false },
 	performance = {
 		cache = true,

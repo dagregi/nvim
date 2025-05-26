@@ -19,7 +19,6 @@ return {
 		},
 	},
 	config = function()
-		local lspconfig = require("lspconfig")
 		local cmp_lsp = require("cmp_nvim_lsp")
 		local capabilities = vim.tbl_deep_extend(
 			"force",
@@ -28,6 +27,64 @@ return {
 			cmp_lsp.default_capabilities()
 		)
 
+		vim.lsp.config("gopls", {
+			capabilities = capabilities,
+			on_attach = require("plugins.lsp.lsp-keymaps").on_attach(),
+			settings = {
+				gopls = {
+					gofumpt = true,
+					codelenses = {
+						gc_details = false,
+						generate = true,
+						regenerate_cgo = true,
+						run_govulncheck = true,
+						test = true,
+						tidy = true,
+						upgrade_dependency = true,
+						vendor = true,
+					},
+					hints = {
+						assignVariableTypes = true,
+						compositeLiteralFields = true,
+						compositeLiteralTypes = true,
+						constantValues = true,
+						functionTypeParameters = true,
+						parameterNames = true,
+						rangeVariableTypes = true,
+					},
+					usePlaceholders = true,
+					completeUnimported = true,
+					staticcheck = true,
+					semanticTokens = true,
+				},
+			},
+		})
+
+		vim.lsp.config("rust_analyzer", {
+			capabilities = capabilities,
+			on_attach = require("plugins.lsp.lsp-keymaps").on_attach(),
+			settings = {
+				["rust-analyzer"] = {
+					check = {
+						command = "clippy",
+						extraArgs = { "--no-deps" },
+					},
+				},
+			},
+		})
+
+		vim.lsp.config("lua_ls", {
+			capabilities = capabilities,
+			on_attach = require("plugins.lsp.lsp-keymaps").on_attach(),
+			settings = {
+				Lua = {
+					diagnostics = {
+						globals = { "vim" },
+					},
+				},
+			},
+		})
+
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"lua_ls",
@@ -35,42 +92,9 @@ return {
 				"ts_ls",
 				"gopls",
 			},
-			handlers = {
-				function(server_name)
-					require("lspconfig")[server_name].setup({
-						capabilities = capabilities,
-						on_attach = require("plugins.lsp.lsp-keymaps").on_attach(),
-					})
-				end,
-
-				["rust_analyzer"] = function()
-					lspconfig.rust_analyzer.setup({
-						settings = {
-							["rust-analyzer"] = {
-								check = {
-									command = "clippy",
-									extraArgs = { "--no-deps" },
-								},
-							},
-						},
-					})
-				end,
-				["lua_ls"] = function()
-					lspconfig.lua_ls.setup({
-						capabilities = capabilities,
-						on_attach = require("plugins.lsp.lsp-keymaps").on_attach(),
-						settings = {
-							Lua = {
-								diagnostics = {
-									globals = { "vim" },
-								},
-							},
-						},
-					})
-				end,
-			},
 		})
 
+		require("plugins.lsp.lsp-keymaps").on_attach()
 		require("plugins.lsp.diagnostics").setup()
 		require("plugins.lsp.handlers").setup()
 	end,
