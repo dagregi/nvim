@@ -25,6 +25,7 @@ return {
 			css = { "prettier" },
 			html = { "prettier" },
 			go = { "gofumpt" },
+			sql = { "sqlfmt" },
 		},
 		formatters = {
 			prettier = {
