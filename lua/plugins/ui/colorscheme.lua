@@ -10,7 +10,7 @@ return {
 			dim_inactive_windows = true,
 			styles = {
 				bold = true,
-				italic = false,
+				italic = true,
 				transparency = true,
 			},
 			highlight_groups = {
