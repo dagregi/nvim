@@ -24,6 +24,7 @@ return {
 			vue = { "prettier" },
 			css = { "prettier" },
 			html = { "prettier" },
+			json = { "prettier" },
 			go = { "gofumpt" },
 			sql = { "sqlfmt" },
 		},
