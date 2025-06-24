@@ -65,6 +65,14 @@ return {
 			cmp.setup(opts.defaults)
 			cmp.setup.cmdline({ "/", "?" }, opts.search)
 			cmp.setup.cmdline(":", opts.command)
+
+			-- Setup vim-dadbod
+			cmp.setup.filetype({ "sql" }, {
+				sources = {
+					{ name = "vim-dadbod-completion" },
+					{ name = "buffer" },
+				},
+			})
 		end,
 	},
 	require("plugins.cmp.lua-snip"),
