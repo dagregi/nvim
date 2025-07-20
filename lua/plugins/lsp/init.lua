@@ -69,6 +69,9 @@ return {
 						command = "clippy",
 						extraArgs = { "--no-deps" },
 					},
+					cargo = {
+						targetDir = true,
+					},
 				},
 			},
 		})
