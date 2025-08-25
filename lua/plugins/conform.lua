@@ -20,6 +20,7 @@ return {
 			ocaml = { "ocamlformat" },
 			javascript = { "prettier" },
 			markdown = { "prettier" },
+			yaml = { "prettier" },
 			typescript = { "prettier" },
 			vue = { "prettier" },
 			css = { "prettier" },
