@@ -67,10 +67,25 @@ return {
 				["rust-analyzer"] = {
 					check = {
 						command = "clippy",
-						extraArgs = { "--no-deps" },
+						extraArgs = {
+							"--",
+							"--no-deps",
+							"-Dclippy::correctness",
+							"-Dclippy::complexity",
+							"-Wclippy::perf",
+							"-Wclippy::pedantic",
+						},
 					},
 					cargo = {
 						targetDir = true,
+					},
+					procMacro = {
+						enable = true,
+						ignored = {
+							["async-trait"] = { "async_trait" },
+							["napi-derive"] = { "napi" },
+							["async-recursion"] = { "async_recursion" },
+						},
 					},
 				},
 			},
