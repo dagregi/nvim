@@ -28,6 +28,8 @@ return {
 			json = { "prettier" },
 			go = { "gofumpt" },
 			sql = { "sqlfmt" },
+			kt = { "ktfmt" },
+			proto = { "buf" },
 		},
 		formatters = {
 			prettier = {
