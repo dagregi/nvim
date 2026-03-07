@@ -70,9 +70,9 @@ return {
 						extraArgs = {
 							"--",
 							"--no-deps",
-							"-Dclippy::correctness",
 							"-Dclippy::complexity",
-							"-Wclippy::perf",
+							"-Dclippy::suspicious",
+							"-Dclippy::perf",
 							"-Wclippy::pedantic",
 						},
 					},
@@ -82,6 +82,7 @@ return {
 					procMacro = {
 						enable = true,
 						ignored = {
+							["async-trait"] = { "async_trait" },
 							["napi-derive"] = { "napi" },
 							["async-recursion"] = { "async_recursion" },
 						},
