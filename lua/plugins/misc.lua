@@ -6,6 +6,12 @@ return {
 		opts = {},
 	},
 	{
+		"supermaven-inc/supermaven-nvim",
+		config = function()
+			require("supermaven-nvim").setup({})
+		end,
+	},
+	{
 		"mbbill/undotree",
 		keys = { { "<leader>cu", vim.cmd.UndotreeToggle, desc = "Undotree" } },
 	},
